@@ -1,0 +1,631 @@
+bot.py [08-11-2018 15:28:00] INFO: Logged as group
+bot.py [08-11-2018 15:29:33] INFO: Logged as group
+bot.py [08-11-2018 15:29:37] INFO: Logged as group
+bot.py [08-11-2018 15:38:33] INFO: Logged as group
+bot.py [08-11-2018 15:39:59] INFO: Logged as group
+bot.py [08-11-2018 15:40:14] INFO: Logged as group
+bot.py [08-11-2018 15:52:07] INFO: Logged as group
+bot.py [08-11-2018 15:52:28] INFO: Logged as group
+bot.py [08-11-2018 15:52:28] INFO: Started to process message
+bot.py [08-11-2018 15:53:02] INFO: Logged as group
+bot.py [08-11-2018 15:53:02] INFO: Started to process message
+bot.py [08-11-2018 15:53:18] INFO: Logged as group
+bot.py [08-11-2018 15:53:18] INFO: Started to process message
+bot.py [08-11-2018 15:53:24] INFO: Logged as group
+bot.py [08-11-2018 15:53:24] INFO: Started to process message
+bot.py [08-11-2018 15:53:30] INFO: Logged as group
+bot.py [08-11-2018 15:53:30] INFO: Started to process message
+bot.py [08-11-2018 15:53:39] INFO: Logged as group
+bot.py [08-11-2018 15:53:39] INFO: Started to process message
+bot.py [08-11-2018 15:53:58] INFO: Logged as group
+bot.py [08-11-2018 15:53:58] INFO: Started to process message
+bot.py [08-11-2018 15:54:14] INFO: Logged as group
+bot.py [08-11-2018 15:54:14] INFO: Started to process message
+bot.py [08-11-2018 15:55:33] INFO: Logged as group
+bot.py [08-11-2018 15:55:33] INFO: Started to process message
+bot.py [08-11-2018 15:55:50] INFO: Logged as group
+bot.py [08-11-2018 15:55:50] INFO: Started to process message
+bot.py [08-11-2018 15:56:06] INFO: Logged as group
+bot.py [08-11-2018 15:56:06] INFO: Started to process message
+bot.py [08-11-2018 15:56:30] INFO: Logged as group
+bot.py [08-11-2018 15:56:30] INFO: Started to process message
+bot.py [08-11-2018 15:57:25] INFO: Logged as group
+bot.py [08-11-2018 15:57:25] INFO: Started to process message
+bot.py [08-11-2018 15:57:42] INFO: Logged as group
+bot.py [08-11-2018 15:57:42] INFO: Started to process message
+bot.py [08-11-2018 15:58:20] INFO: Logged as group
+bot.py [08-11-2018 15:58:20] INFO: Started to process message
+bot.py [08-11-2018 15:58:26] INFO: Logged as group
+bot.py [08-11-2018 15:58:26] INFO: Started to process message
+bot.py [08-11-2018 15:59:23] INFO: Logged as group
+bot.py [08-11-2018 15:59:23] INFO: Started to process message
+bot.py [08-11-2018 16:00:58] INFO: Logged as group
+bot.py [08-11-2018 16:00:58] INFO: Started to process message
+bot.py [08-11-2018 16:05:12] INFO: Logged as group
+bot.py [08-11-2018 16:05:12] INFO: Started to process message
+bot.py [08-11-2018 16:05:38] INFO: Logged as group
+bot.py [08-11-2018 16:05:38] INFO: Started to process message
+bot.py [08-11-2018 16:06:26] INFO: Logged as group
+bot.py [08-11-2018 16:06:26] INFO: Started to process message
+bot.py [08-11-2018 16:08:26] INFO: Logged as group
+bot.py [08-11-2018 16:08:26] INFO: Started to process message
+bot.py [08-11-2018 16:08:33] INFO: Logged as group
+bot.py [08-11-2018 16:08:33] INFO: Started to process message
+bot.py [08-11-2018 16:10:16] INFO: Logged as group
+bot.py [08-11-2018 16:10:16] INFO: Started to process message
+bot.py [08-11-2018 16:10:39] INFO: Logged as group
+bot.py [08-11-2018 16:10:39] INFO: Started to process message
+bot.py [08-11-2018 16:11:23] INFO: Logged as group
+bot.py [08-11-2018 16:11:23] INFO: Started to process message
+bot.py [08-11-2018 16:12:40] INFO: Logged as group
+bot.py [08-11-2018 16:12:40] INFO: Started to process messages
+bot.py [08-11-2018 16:13:58] INFO: Logged as group
+bot.py [08-11-2018 16:13:58] INFO: Started to process messages
+bot.py [08-11-2018 16:13:59] INFO: Logged as group
+bot.py [08-11-2018 16:13:59] INFO: Started to process messages
+bot.py [08-11-2018 16:14:02] INFO: Logged as group
+bot.py [08-11-2018 16:14:02] INFO: Started to process messages
+bot.py [08-11-2018 16:14:22] INFO: {'ts': 1684878085, 'updates': []}
+bot.py [08-11-2018 16:14:42] INFO: {'ts': 1684878085, 'updates': []}
+bot.py [08-11-2018 16:14:43] INFO: Logged as group
+bot.py [08-11-2018 16:14:43] INFO: Started to process messages
+bot.py [08-11-2018 16:15:04] INFO: {'ts': 1684878085, 'updates': []}
+bot.py [08-11-2018 16:15:24] INFO: {'ts': 1684878085, 'updates': []}
+bot.py [08-11-2018 16:15:28] INFO: {'ts': 1684878088, 'updates': [[4, 696, 1, 136950703, 1541682928, 'Профиль', {'title': ' ... '}], [80, 1, 0], [12, 136950703, 2]]}
+bot.py [08-11-2018 16:15:48] INFO: {'ts': 1684878088, 'updates': []}
+bot.py [08-11-2018 16:16:08] INFO: {'ts': 1684878088, 'updates': []}
+bot.py [08-11-2018 16:16:28] INFO: {'ts': 1684878088, 'updates': []}
+bot.py [08-11-2018 16:16:31] INFO: {'ts': 1684878090, 'updates': [[61, 136950703, 1]]}
+bot.py [08-11-2018 16:16:32] INFO: {'ts': 1684878091, 'updates': [[4, 697, 17, 136950703, 1541682992, '12121', {'title': ' ... '}]]}
+bot.py [08-11-2018 16:16:52] INFO: {'ts': 1684878091, 'updates': []}
+bot.py [08-11-2018 16:17:32] INFO: Logged as group
+bot.py [08-11-2018 16:17:32] INFO: Started to process messages
+bot.py [08-11-2018 16:18:26] INFO: 61
+bot.py [08-11-2018 16:18:28] INFO: 4
+bot.py [08-11-2018 16:19:04] INFO: Logged as group
+bot.py [08-11-2018 16:19:04] INFO: Started to process messages
+bot.py [08-11-2018 16:19:33] INFO: 61
+bot.py [08-11-2018 16:19:34] INFO: 4
+bot.py [08-11-2018 16:19:39] INFO: 4
+bot.py [08-11-2018 16:21:23] INFO: 4
+bot.py [08-11-2018 16:25:48] INFO: Logged as group
+bot.py [08-11-2018 16:25:48] INFO: Started to process messages
+bot.py [08-11-2018 16:28:39] INFO: Logged as group
+bot.py [08-11-2018 16:28:39] INFO: Started to process messages
+bot.py [08-11-2018 16:33:30] INFO: Logged as group
+bot.py [08-11-2018 16:33:30] INFO: Started to process messages
+bot.py [08-11-2018 16:35:09] INFO: Logged as group
+bot.py [08-11-2018 16:35:09] INFO: Started to process messages
+bot.py [08-11-2018 16:35:44] INFO: Logged as group
+bot.py [08-11-2018 16:35:44] INFO: Started to process messages
+bot.py [08-11-2018 16:40:04] INFO: Logged as group
+bot.py [08-11-2018 16:40:04] INFO: Started to process messages
+bot.py [08-11-2018 16:48:45] INFO: Logged as group
+bot.py [08-11-2018 16:48:45] INFO: Started to process messages
+bot.py [08-11-2018 16:48:47] INFO: 61
+bot.py [08-11-2018 16:48:48] INFO: 4
+bot.py [08-11-2018 16:48:48] INFO: 80
+bot.py [08-11-2018 16:48:48] INFO: 12
+bot.py [08-11-2018 16:49:58] INFO: Logged as group
+bot.py [08-11-2018 16:49:58] INFO: Started to process messages
+bot.py [08-11-2018 16:50:28] INFO: 61
+bot.py [08-11-2018 16:50:29] INFO: 4
+bot.py [08-11-2018 16:51:10] INFO: Logged as group
+bot.py [08-11-2018 16:51:10] INFO: Started to process messages
+bot.py [08-11-2018 16:51:11] INFO: 61
+bot.py [08-11-2018 16:51:12] INFO: 4
+bot.py [08-11-2018 16:52:01] INFO: Logged as group
+bot.py [08-11-2018 16:52:01] INFO: Started to process messages
+bot.py [08-11-2018 16:52:11] INFO: 61
+bot.py [08-11-2018 16:52:11] INFO: 4
+bot.py [08-11-2018 16:58:20] INFO: 61
+bot.py [08-11-2018 16:58:22] INFO: 4
+botv1.py [08-11-2018 17:34:10] INFO: Logged as group
+botv1.py [08-11-2018 17:34:10] INFO: Started to process messages
+botv1.py [08-11-2018 20:02:08] INFO: Logged as group
+botv1.py [08-11-2018 20:02:08] INFO: Started to process messages
+bot.py [08-11-2018 20:02:48] CRITICAL: Unexpected auth error!
+bot.py [08-11-2018 20:03:15] INFO: Login as group!
+bot.py [08-11-2018 20:03:21] INFO: Login as group!
+bot.py [08-11-2018 20:04:23] INFO: Login as group!
+bot.py [08-11-2018 20:04:27] INFO: Login as group!
+bot.py [08-11-2018 20:06:43] INFO: Login as group!
+bot.py [08-11-2018 20:06:51] INFO: Login as group!
+bot.py [08-11-2018 20:25:32] INFO: Login as [{'id': 168105642, 'name': 'Kurumi Bot Project', 'screen_name': 'kurumi_bot_project', 'is_closed': 0, 'type': 'page', 'photo_50': 'https://pp.userapi.com/c824601/v824601555/171469/lhpeO8U58hI.jpg?ava=1', 'photo_100': 'https://pp.userapi.com/c824601/v824601555/171468/7baO3V44eoU.jpg?ava=1', 'photo_200': 'https://pp.userapi.com/c824601/v824601555/171467/M9c5vYTqox8.jpg?ava=1'}]!
+bot.py [08-11-2018 20:25:44] INFO: Login as Kurumi Bot Project!
+bot.py [08-11-2018 20:33:43] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 20:36:20] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 20:40:18] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 20:42:18] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 20:42:47] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 20:42:49] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 20:43:02] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 20:43:51] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 20:44:00] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 20:44:09] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 20:44:59] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 20:45:09] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 20:45:10] INFO: Started to process messages
+bot.py [08-11-2018 20:50:51] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 20:50:51] INFO: Started to process messages
+bot.py [08-11-2018 20:51:04] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 20:51:05] INFO: Started to process messages
+bot.py [08-11-2018 20:51:33] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 20:51:34] INFO: Started to process messages
+bot.py [08-11-2018 20:57:34] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 20:57:35] INFO: Started to process messages
+bot.py [08-11-2018 20:58:19] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 20:58:20] INFO: Started to process messages
+bot.py [08-11-2018 21:20:18] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:20:18] INFO: Started to process messages
+bot.py [08-11-2018 21:22:52] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:22:52] INFO: Started to process messages
+bot.py [08-11-2018 21:28:22] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:28:23] INFO: Started to process messages
+bot.py [08-11-2018 21:36:06] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:36:07] INFO: Started to process messages
+bot.py [08-11-2018 21:38:41] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:38:42] INFO: Started to process messages
+bot.py [08-11-2018 21:39:23] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:39:23] INFO: Started to process messages
+bot.py [08-11-2018 21:39:38] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:39:39] INFO: Started to process messages
+bot.py [08-11-2018 21:39:52] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:39:53] INFO: Started to process messages
+bot.py [08-11-2018 21:40:28] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:40:28] INFO: Started to process messages
+bot.py [08-11-2018 21:41:10] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:41:10] INFO: Started to process messages
+bot.py [08-11-2018 21:41:39] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:41:40] INFO: Started to process messages
+bot.py [08-11-2018 21:41:52] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:41:53] INFO: Started to process messages
+bot.py [08-11-2018 21:42:53] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:42:54] INFO: Started to process messages
+handler.py [08-11-2018 21:42:54] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 21:42:57] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:42:58] INFO: Started to process messages
+handler.py [08-11-2018 21:42:58] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 21:43:07] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:43:08] INFO: Started to process messages
+handler.py [08-11-2018 21:43:08] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 21:43:08] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 21:43:36] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:43:37] INFO: Started to process messages
+handler.py [08-11-2018 21:43:37] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 21:43:37] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 21:43:48] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:43:49] INFO: Started to process messages
+handler.py [08-11-2018 21:43:49] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 21:43:49] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 21:44:30] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:44:31] INFO: Started to process messages
+handler.py [08-11-2018 21:44:31] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 21:44:31] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 21:45:18] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:45:19] INFO: Started to process messages
+handler.py [08-11-2018 21:45:19] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 21:45:19] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 21:52:57] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:52:58] INFO: Started to process messages
+handler.py [08-11-2018 21:52:58] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 21:52:58] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 21:53:21] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:53:22] INFO: Started to process messages
+handler.py [08-11-2018 21:53:22] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 21:53:22] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 21:53:37] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:53:37] INFO: Started to process messages
+handler.py [08-11-2018 21:53:37] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 21:53:37] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 21:55:00] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:55:01] INFO: Started to process messages
+handler.py [08-11-2018 21:55:01] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 21:55:01] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 21:55:12] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:55:13] INFO: Started to process messages
+handler.py [08-11-2018 21:55:13] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 21:55:13] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 21:55:44] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:55:44] INFO: Started to process messages
+handler.py [08-11-2018 21:55:44] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 21:55:44] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 21:57:09] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:57:10] INFO: Started to process messages
+handler.py [08-11-2018 21:57:10] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 21:57:10] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 21:57:28] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:57:29] INFO: Started to process messages
+handler.py [08-11-2018 21:57:29] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 21:57:29] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 21:57:54] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 21:57:55] INFO: Started to process messages
+handler.py [08-11-2018 21:57:55] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 21:57:55] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 21:57:57] DEBUG: Processed message (781)
+bot.py [08-11-2018 22:02:49] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:02:50] INFO: Started to process messages
+handler.py [08-11-2018 22:02:50] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:02:50] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 22:06:17] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:06:18] INFO: Started to process messages
+handler.py [08-11-2018 22:06:18] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:06:18] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 22:06:34] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:06:35] INFO: Started to process messages
+handler.py [08-11-2018 22:06:35] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:06:35] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 22:07:06] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:07:07] INFO: Started to process messages
+handler.py [08-11-2018 22:07:07] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:07:07] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 22:07:23] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:07:24] INFO: Started to process messages
+handler.py [08-11-2018 22:07:24] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:07:24] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:07:50] DEBUG: Finished with event (<<class 'vk_api.bot_longpoll.VkBotEvent'>({'type': 'message_typing_state', 'object': {'state': 'typing', 'from_id': 136950703, 'to_id': -168105642}, 'group_id': 168105642})>) on <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 22:08:48] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:08:48] INFO: Started to process messages
+handler.py [08-11-2018 22:08:48] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:08:48] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:08:50] DEBUG: Finished with event (<<class 'vk_api.bot_longpoll.VkBotEvent'>({'type': 'message_typing_state', 'object': {'state': 'typing', 'from_id': 136950703, 'to_id': -168105642}, 'group_id': 168105642})>) on <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 22:09:36] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:09:37] INFO: Started to process messages
+handler.py [08-11-2018 22:09:37] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:09:37] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:09:38] DEBUG: Processed event (<<class 'vk_api.bot_longpoll.VkBotEvent'>({'type': 'message_typing_state', 'object': {'state': 'typing', 'from_id': 136950703, 'to_id': -168105642}, 'group_id': 168105642})>)
+bot.py [08-11-2018 22:10:09] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:10:09] INFO: Started to process messages
+handler.py [08-11-2018 22:10:09] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:10:09] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:10:12] DEBUG: Processed event (<<class 'vk_api.bot_longpoll.VkBotEvent'>({'type': 'message_typing_state', 'object': {'state': 'typing', 'from_id': 136950703, 'to_id': -168105642}, 'group_id': 168105642})>)
+bot.py [08-11-2018 22:10:38] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:10:39] INFO: Started to process messages
+handler.py [08-11-2018 22:10:39] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:10:39] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:10:41] DEBUG: Processed event (<<class 'vk_api.bot_longpoll.VkBotEvent'>({'type': 'message_typing_state', 'object': {'state': 'typing', 'from_id': 136950703, 'to_id': -168105642}, 'group_id': 168105642})>)
+bot.py [08-11-2018 22:10:54] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:10:54] INFO: Started to process messages
+handler.py [08-11-2018 22:10:54] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:10:54] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:10:56] DEBUG: Processed event (<<class 'vk_api.bot_longpoll.VkBotEvent'>({'type': 'message_typing_state', 'object': {'state': 'typing', 'from_id': 136950703, 'to_id': -168105642}, 'group_id': 168105642})>)
+bot.py [08-11-2018 22:11:18] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:11:18] INFO: Started to process messages
+handler.py [08-11-2018 22:11:18] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:11:18] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 22:11:38] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:11:39] INFO: Started to process messages
+handler.py [08-11-2018 22:11:39] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:11:39] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:11:54] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+bot.py [08-11-2018 22:13:23] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:13:24] INFO: Started to process messages
+handler.py [08-11-2018 22:13:24] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:13:24] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:13:42] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+bot.py [08-11-2018 22:14:37] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:14:37] INFO: Started to process messages
+handler.py [08-11-2018 22:14:37] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:14:37] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:14:42] DEBUG: Processed message (785)
+bot.py [08-11-2018 22:17:42] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:17:42] INFO: Started to process messages
+handler.py [08-11-2018 22:17:42] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:17:42] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:17:51] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+handler.py [08-11-2018 22:17:52] DEBUG: Processed message (786)
+bot.py [08-11-2018 22:19:15] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:19:16] INFO: Started to process messages
+handler.py [08-11-2018 22:19:16] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:19:16] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:19:18] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+handler.py [08-11-2018 22:19:18] DEBUG: Processed message (787)
+handler.py [08-11-2018 22:19:22] DEBUG: Processed message (788)
+bot.py [08-11-2018 22:22:40] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:22:41] INFO: Started to process messages
+handler.py [08-11-2018 22:22:41] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:22:41] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:22:44] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+bot.py [08-11-2018 22:23:22] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:23:23] INFO: Started to process messages
+handler.py [08-11-2018 22:23:23] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:23:23] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:23:25] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+bot.py [08-11-2018 22:23:33] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:23:34] INFO: Started to process messages
+handler.py [08-11-2018 22:23:34] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:23:34] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:23:35] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+handler.py [08-11-2018 22:23:35] DEBUG: Processed message (791)
+bot.py [08-11-2018 22:24:01] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:24:02] INFO: Started to process messages
+handler.py [08-11-2018 22:24:02] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:24:02] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:24:03] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+handler.py [08-11-2018 22:24:04] DEBUG: Finished with message (792) on <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 22:24:45] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:24:46] INFO: Started to process messages
+handler.py [08-11-2018 22:24:46] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:24:46] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:24:56] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+handler.py [08-11-2018 22:24:57] DEBUG: Processed message (793)
+bot.py [08-11-2018 22:25:09] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:25:10] INFO: Started to process messages
+handler.py [08-11-2018 22:25:10] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:25:10] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:25:11] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+handler.py [08-11-2018 22:25:12] DEBUG: Finished with message (794) on <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 22:25:32] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:25:33] INFO: Started to process messages
+handler.py [08-11-2018 22:25:33] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:25:33] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:25:36] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+handler.py [08-11-2018 22:25:37] DEBUG: Finished with message (795) on <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:25:37] DEBUG: Processed event (VkBotEventType.MESSAGE_REPLY)
+bot.py [08-11-2018 22:25:44] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:25:45] INFO: Started to process messages
+handler.py [08-11-2018 22:25:45] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:25:45] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:25:46] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+handler.py [08-11-2018 22:25:46] DEBUG: Processed message (797)
+bot.py [08-11-2018 22:25:57] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:25:57] INFO: Started to process messages
+handler.py [08-11-2018 22:25:57] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:25:57] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:25:58] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+handler.py [08-11-2018 22:25:59] DEBUG: Processed message (798)
+bot.py [08-11-2018 22:28:20] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:28:20] INFO: Started to process messages
+handler.py [08-11-2018 22:28:20] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:28:20] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+bot.py [08-11-2018 22:32:39] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:32:40] INFO: Started to process messages
+handler.py [08-11-2018 22:32:40] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:32:40] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:32:40] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+handler.py [08-11-2018 22:32:41] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:32:41] DEBUG: Processed message (799)
+handler.py [08-11-2018 22:32:41] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:33:44] DEBUG: Processed message (0)
+bot.py [08-11-2018 22:34:12] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:34:12] INFO: Started to process messages
+handler.py [08-11-2018 22:34:12] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:34:12] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:34:17] DEBUG: Processed message (0)
+bot.py [08-11-2018 22:35:10] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:35:11] INFO: Started to process messages
+handler.py [08-11-2018 22:35:11] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:35:11] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:35:20] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+bot.py [08-11-2018 22:35:39] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:35:40] INFO: Started to process messages
+bot.py [08-11-2018 22:35:57] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:35:57] INFO: Started to process messages
+handler.py [08-11-2018 22:35:57] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:35:57] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:36:00] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+bot.py [08-11-2018 22:36:22] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:36:23] INFO: Started to process messages
+handler.py [08-11-2018 22:36:23] DEBUG: Pre-init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:36:23] DEBUG: Init: <member 'name' of 'BasePlugin' objects>
+handler.py [08-11-2018 22:36:23] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+bot.py [08-11-2018 22:36:56] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:36:57] INFO: Started to process messages
+handler.py [08-11-2018 22:36:57] DEBUG: Pre-init: Economy
+bot.py [08-11-2018 22:37:03] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:37:03] INFO: Started to process messages
+handler.py [08-11-2018 22:37:03] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 22:37:03] DEBUG: Init: Economy
+bot.py [08-11-2018 22:37:18] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:37:19] INFO: Started to process messages
+handler.py [08-11-2018 22:37:19] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 22:37:19] DEBUG: Init: Economy
+bot.py [08-11-2018 22:37:34] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:37:35] INFO: Started to process messages
+handler.py [08-11-2018 22:37:35] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 22:37:35] DEBUG: Init: Economy
+bot.py [08-11-2018 22:37:53] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:37:54] INFO: Started to process messages
+handler.py [08-11-2018 22:37:54] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 22:37:54] DEBUG: Init: Economy
+handler.py [08-11-2018 22:37:57] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+bot.py [08-11-2018 22:38:22] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:38:23] INFO: Started to process messages
+handler.py [08-11-2018 22:38:23] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 22:38:23] DEBUG: Init: Economy
+handler.py [08-11-2018 22:38:25] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+handler.py [08-11-2018 22:38:26] DEBUG: Processed message (806)
+handler.py [08-11-2018 22:38:34] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+handler.py [08-11-2018 22:38:35] DEBUG: Processed message (807)
+bot.py [08-11-2018 22:38:45] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:38:46] INFO: Started to process messages
+handler.py [08-11-2018 22:38:46] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 22:38:46] DEBUG: Init: Economy
+handler.py [08-11-2018 22:38:48] DEBUG: Processed message (808)
+bot.py [08-11-2018 22:39:49] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:39:50] INFO: Started to process messages
+handler.py [08-11-2018 22:39:50] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 22:39:50] DEBUG: Init: Economy
+bot.py [08-11-2018 22:40:08] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:40:09] INFO: Started to process messages
+handler.py [08-11-2018 22:40:09] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 22:40:09] DEBUG: Init: Economy
+handler.py [08-11-2018 22:40:10] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+handler.py [08-11-2018 22:40:11] DEBUG: Finished with message (810) on Economy
+handler.py [08-11-2018 22:40:11] DEBUG: Processed event (VkBotEventType.MESSAGE_REPLY)
+bot.py [08-11-2018 22:41:00] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:41:01] INFO: Started to process messages
+handler.py [08-11-2018 22:41:01] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 22:41:01] DEBUG: Init: Economy
+handler.py [08-11-2018 22:41:03] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+handler.py [08-11-2018 22:41:03] DEBUG: Processed message (812)
+handler.py [08-11-2018 22:41:09] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+handler.py [08-11-2018 22:41:36] DEBUG: Processed message (0)
+bot.py [08-11-2018 22:41:40] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:41:41] INFO: Started to process messages
+handler.py [08-11-2018 22:41:41] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 22:41:41] DEBUG: Init: Economy
+handler.py [08-11-2018 22:41:43] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+handler.py [08-11-2018 22:41:50] DEBUG: Processed message (0)
+bot.py [08-11-2018 22:42:04] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:42:05] INFO: Started to process messages
+handler.py [08-11-2018 22:42:05] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 22:42:05] DEBUG: Init: Economy
+handler.py [08-11-2018 22:42:06] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:42:06] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:42:29] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+bot.py [08-11-2018 22:43:25] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:43:26] INFO: Started to process messages
+bot.py [08-11-2018 22:43:35] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:43:47] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:43:48] INFO: Started to process messages
+handler.py [08-11-2018 22:43:48] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 22:43:48] DEBUG: Init: Economy
+handler.py [08-11-2018 22:43:50] DEBUG: Finished with message (816) on Economy
+handler.py [08-11-2018 22:43:50] DEBUG: Processed event (VkBotEventType.MESSAGE_REPLY)
+bot.py [08-11-2018 22:44:31] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:44:32] INFO: Started to process messages
+handler.py [08-11-2018 22:44:32] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 22:44:32] DEBUG: Init: Economy
+handler.py [08-11-2018 22:44:33] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:44:35] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:44:35] DEBUG: Finished with message (818) on Economy
+handler.py [08-11-2018 22:44:35] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:44:35] DEBUG: Processed event (VkBotEventType.MESSAGE_REPLY)
+handler.py [08-11-2018 22:44:36] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:45:15] DEBUG: Finished with message (0) on Economy
+handler.py [08-11-2018 22:45:15] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:45:23] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:45:29] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:45:30] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:45:32] DEBUG: Processed message (0)
+bot.py [08-11-2018 22:45:36] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:45:37] INFO: Started to process messages
+handler.py [08-11-2018 22:45:37] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 22:45:37] DEBUG: Init: Economy
+handler.py [08-11-2018 22:45:38] DEBUG: Finished with message (0) on Economy
+handler.py [08-11-2018 22:45:39] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:45:44] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:45:56] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:46:09] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:46:15] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:46:20] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:46:30] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:46:31] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:46:40] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:46:50] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:46:51] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:46:51] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:46:52] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:46:57] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:47:05] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:47:05] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:47:14] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:47:23] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:47:26] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:47:32] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:47:40] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:47:43] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:47:45] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:48:28] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:50:40] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:50:52] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:51:17] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:51:37] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:51:43] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:51:45] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:51:48] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:52:01] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:52:03] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:52:04] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:52:04] DEBUG: Processed message (0)
+handler.py [08-11-2018 22:52:07] DEBUG: Finished with message (0) on Economy
+handler.py [08-11-2018 22:52:07] DEBUG: Processed message (0)
+bot.py [08-11-2018 22:58:34] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 22:58:34] INFO: Started to process messages
+handler.py [08-11-2018 22:58:34] DEBUG: Pre-init: PeeweePlugin
+handler.py [08-11-2018 22:58:34] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 22:58:34] DEBUG: Init: PeeweePlugin
+handler.py [08-11-2018 22:58:34] DEBUG: Init: Economy
+bot.py [08-11-2018 23:01:25] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 23:01:25] INFO: Started to process messages
+handler.py [08-11-2018 23:01:25] DEBUG: Pre-init: PeeweePlugin
+handler.py [08-11-2018 23:01:25] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 23:01:25] DEBUG: Init: PeeweePlugin
+handler.py [08-11-2018 23:01:25] DEBUG: Init: Economy
+handler.py [08-11-2018 23:01:30] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+handler.py [08-11-2018 23:01:48] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+handler.py [08-11-2018 23:01:49] DEBUG: Processed message (821)
+bot.py [08-11-2018 23:02:09] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 23:02:10] INFO: Started to process messages
+handler.py [08-11-2018 23:02:10] DEBUG: Pre-init: PeeweePlugin
+handler.py [08-11-2018 23:02:10] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 23:02:10] DEBUG: Init: PeeweePlugin
+handler.py [08-11-2018 23:02:10] DEBUG: Init: Economy
+handler.py [08-11-2018 23:02:30] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+bot.py [08-11-2018 23:03:17] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 23:03:17] INFO: Started to process messages
+handler.py [08-11-2018 23:03:17] DEBUG: Pre-init: PeeweePlugin
+handler.py [08-11-2018 23:03:17] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 23:03:17] DEBUG: Init: PeeweePlugin
+handler.py [08-11-2018 23:03:17] DEBUG: Init: Economy
+handler.py [08-11-2018 23:03:19] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+bot.py [08-11-2018 23:03:56] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 23:03:57] INFO: Started to process messages
+handler.py [08-11-2018 23:03:57] DEBUG: Pre-init: PeeweePlugin
+handler.py [08-11-2018 23:03:57] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 23:03:57] DEBUG: Init: PeeweePlugin
+handler.py [08-11-2018 23:03:57] DEBUG: Init: Economy
+handler.py [08-11-2018 23:04:03] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+bot.py [08-11-2018 23:04:14] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 23:04:15] INFO: Started to process messages
+handler.py [08-11-2018 23:04:15] DEBUG: Pre-init: PeeweePlugin
+handler.py [08-11-2018 23:04:15] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 23:04:15] DEBUG: Init: PeeweePlugin
+handler.py [08-11-2018 23:04:15] DEBUG: Init: Economy
+handler.py [08-11-2018 23:04:18] DEBUG: Finished with message (826) on Economy
+handler.py [08-11-2018 23:04:18] DEBUG: Processed event (VkBotEventType.MESSAGE_REPLY)
+bot.py [08-11-2018 23:04:29] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 23:04:30] INFO: Started to process messages
+handler.py [08-11-2018 23:04:30] DEBUG: Pre-init: PeeweePlugin
+handler.py [08-11-2018 23:04:30] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 23:04:30] DEBUG: Init: PeeweePlugin
+handler.py [08-11-2018 23:04:30] DEBUG: Init: Economy
+handler.py [08-11-2018 23:04:30] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+bot.py [08-11-2018 23:04:48] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 23:04:49] INFO: Started to process messages
+handler.py [08-11-2018 23:04:49] DEBUG: Pre-init: PeeweePlugin
+handler.py [08-11-2018 23:04:49] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 23:04:49] DEBUG: Init: PeeweePlugin
+handler.py [08-11-2018 23:04:49] DEBUG: Init: Economy
+handler.py [08-11-2018 23:05:01] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+bot.py [08-11-2018 23:06:35] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 23:06:35] INFO: Started to process messages
+handler.py [08-11-2018 23:06:35] DEBUG: Pre-init: PeeweePlugin
+handler.py [08-11-2018 23:06:35] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 23:06:35] DEBUG: Init: PeeweePlugin
+handler.py [08-11-2018 23:06:35] DEBUG: Init: Economy
+bot.py [08-11-2018 23:13:46] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 23:13:47] INFO: Started to process messages
+handler.py [08-11-2018 23:13:47] DEBUG: Pre-init: PeeweePlugin
+handler.py [08-11-2018 23:13:47] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 23:13:47] DEBUG: Init: PeeweePlugin
+handler.py [08-11-2018 23:13:47] DEBUG: Init: Economy
+bot.py [08-11-2018 23:14:13] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 23:14:14] INFO: Started to process messages
+handler.py [08-11-2018 23:14:14] DEBUG: Pre-init: PeeweePlugin
+handler.py [08-11-2018 23:14:14] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 23:14:14] DEBUG: Init: PeeweePlugin
+handler.py [08-11-2018 23:14:14] DEBUG: Init: Economy
+handler.py [08-11-2018 23:14:15] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+bot.py [08-11-2018 23:15:10] INFO: Login as Kurumi Bot Project (https://vk.com/kurumi_bot_project)
+bot.py [08-11-2018 23:15:10] INFO: Started to process messages
+handler.py [08-11-2018 23:15:10] DEBUG: Pre-init: PeeweePlugin
+handler.py [08-11-2018 23:15:10] DEBUG: Pre-init: Economy
+handler.py [08-11-2018 23:15:10] DEBUG: Init: PeeweePlugin
+handler.py [08-11-2018 23:15:10] DEBUG: Init: Economy
+handler.py [08-11-2018 23:15:11] DEBUG: Processed event (VkBotEventType.MESSAGE_TYPING_STATE)
+handler.py [08-11-2018 23:15:13] DEBUG: Finished with message (832) on Economy
+handler.py [08-11-2018 23:15:13] DEBUG: Processed event (VkBotEventType.MESSAGE_REPLY)
+bot.py [08-11-2018 23:15:36] CRITICAL: Login is required to auth
+bot.py [08-11-2018 23:17:23] CRITICAL: Unexpected auth error!
