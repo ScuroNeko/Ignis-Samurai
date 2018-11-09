@@ -1,12 +1,28 @@
+from handler.base_plugin import BasePlugin
+
 import peewee_async
 
-from handler.base_plugin import BasePlugin
+
+""" peewee_async
+Docs: https://peewee-async.readthedocs.io/en/latest/
+
+peewee
+Docs: http://docs.peewee-orm.com/en/latest/
+"""
+
+"""Possible `custom_driver` values is any peewee_async.* driver or "PostgreSQL" or "MySQL"
+"""
 
 
 class PeeweePlugin(BasePlugin):
     __slots__ = ('database', 'manager', 'set_manager')
 
     def __init__(self, dbhost, dbname, dbuser, dbpassword, dbport=None, custom_driver=None, set_manager=True, **kwargs):
+        """Adds self to messages and event's `data` field.
+        Through this instance you can access peewee_async.Manager instance (data["peewee_async"].manager).
+        This plugin should be included first!
+        """
+
         super().__init__()
 
         self.set_manager = set_manager
@@ -42,3 +58,6 @@ class PeeweePlugin(BasePlugin):
 
     async def before_check(self, msg):
         msg.meta['peewee_async'] = self
+
+    async def before_event_check(self, event):
+        event.meta['peewee_async'] = self

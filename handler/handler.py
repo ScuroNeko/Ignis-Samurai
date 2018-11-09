@@ -52,10 +52,10 @@ class MessageHandler:
 
     async def process_event_with_plugin(self, event, plugin):
         for p in self.plugins:
-            if p.before_event(event, plugin) is False:
+            if await p.before_event(event, plugin) is False:
                 return
-        result = plugin.process_event(event)
+        result = await plugin.process_event(event)
         for p in self.plugins:
-            p.after_event(event, plugin, result)
+            await p.after_event(event, plugin, result)
         return result
 

@@ -1,5 +1,5 @@
-from plugins.users.economy import Economy
-from utils.peewee_plugin import PeeweePlugin
+from plugins.demo_plugin import DemoPlugin
+from utils.peewee import PeeweePlugin
 
 
 class Settings:
@@ -8,7 +8,7 @@ class Settings:
     """user auth
     auth = ('group', 'login', 'password')"""
 
-    auth = ('type', )
+    auth = ('group', )
 
     scope = 140489887
     app_id = 6401748
@@ -19,5 +19,5 @@ class Settings:
         PeeweePlugin('host', 'name', 'user',
                      'password', 5432,
                      'PostgreSQL'),
-        Economy(prefixes=prefixes)
+        DemoPlugin(prefixes=prefixes)
     ]

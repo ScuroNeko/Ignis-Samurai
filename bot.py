@@ -9,7 +9,7 @@ from vk_api.longpoll import VkLongPoll
 
 from handler.handler import MessageHandler
 from settings import Settings
-from utils.data import Message
+from utils.data import Message, LongpollEvent
 
 
 class Bot:
@@ -53,7 +53,7 @@ class Bot:
         if self.auth_method == 'user':
             if len(self.settings.auth) == 2:  # Token auth
                 token = self.settings.auth[1]
-                self.session = vk_api.VkApi(token=token)
+                self.session = vk_api.VkApi(token=token, api_version='5.87')
             elif len(self.settings.auth) == 3:  # Login + Password auth
                 login, password = self.settings.auth[1], self.settings.auth[2]
                 self.session = vk_api.VkApi(login, password,
@@ -80,9 +80,7 @@ class Bot:
                 self.logger.critical('Token not set!')
                 exit()
             else:
-                self.session = vk_api.VkApi(
-                    token=self.settings.auth[1]
-                )
+                self.session = vk_api.VkApi(token=self.settings.auth[1], api_version='5.87')
                 try:
                     self.api = self.session.get_api()
                     self.api.messages.getLongPollServer()
@@ -111,11 +109,11 @@ class Bot:
         self.init_plugins()
         try:
             for event in longpoll.listen():
-                if event.type == VkBotEventType.MESSAGE_NEW:
+                if event.type == VkBotEventType.MESSAGE_NEW and 'action' not in event.raw['object']:
                     task = Task(self.process_message(event.raw['object']))
                     self.loop.run_until_complete(task)
                 else:
-                    task = Task(self.process_event(event.type))
+                    task = Task(self.process_event(event.raw))
                     self.loop.run_until_complete(task)
         except KeyboardInterrupt:
             self.stop()
@@ -124,10 +122,10 @@ class Bot:
         self.handler.initiate()
 
     async def process_message(self, data):
-        asyncio.ensure_future(self.handler.process(Message(data, self.api)))
+        await asyncio.ensure_future(self.handler.process(Message(self.api, data)))
 
     async def process_event(self, event):
-        asyncio.ensure_future(self.handler.process_event(event))
+        await asyncio.ensure_future(self.handler.process_event(LongpollEvent(self.api, event)))
 
     def stop(self):
         self.logger.removeHandler(self.logger_file)

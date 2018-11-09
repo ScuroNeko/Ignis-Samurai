@@ -17,7 +17,7 @@ class EventType(Enum):
 
 
 class Message:
-    def __init__(self, message_data, api):
+    def __init__(self, api, message_data):
         self.message_data = message_data
         self.api = api
 
@@ -31,21 +31,26 @@ class Message:
 
         self.meta = {}
 
-    async def answer(self, msg, attachments=None):
+    async def answer(self, msg, attachments=''):
         if attachments:
-            pass
+            if isinstance(attachments, str):
+                attachments = attachments
+            elif isinstance(attachments, (set, frozenset, tuple, list)):
+                attachments = ','.join(attachments)
         self.api.messages.send(peer_id=self.peer_id,
-                               message=msg)
+                               message=msg,
+                               attachment=attachments)
+        return
 
 
 class LongpollEvent(Event):
-    __slots__ = ('event_data', 'id')
-
-    def __init__(self, api, event_id, event_data):
+    def __init__(self, api, raw_data):
         super().__init__(api, EventType.Longpoll)
-
-        self.id = event_id
-        self.event_data = event_data
+        self.data = raw_data
+        self.type = raw_data['type']
+        self.user_id = raw_data['object']['from_id']
+        self.peer_id = raw_data['object']['peer_id']
+        self.action = 'message_new' if 'action' not in raw_data['object'] else raw_data['object']['action']['type']
 
     def __str__(self):
-        return f"LongpollEvent ({self.id}, {self.event_data[1] if len(self.event_data) > 1 else '_'})"
+        return f'LongpollEvent ({self.type})'
