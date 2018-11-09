@@ -24,9 +24,17 @@ class BasePlugin:
         pass
 
     async def before_check(self, msg):
+        """ Before check command
+        :param msg: Message object
+        :return: True if message must be checked
+        """
         pass
 
     async def check(self, msg):
+        """ Check command
+        :param msg: Message object
+        :return: True if message must be process
+        """
         pass
 
     async def after_check(self, msg):

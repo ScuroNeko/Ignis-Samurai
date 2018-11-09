@@ -49,7 +49,7 @@ class LongpollEvent(Event):
         self.data = raw_data
         self.type = raw_data['type']
         self.user_id = raw_data['object']['from_id']
-        self.peer_id = raw_data['object']['peer_id']
+        self.peer_id = raw_data['object']['peer_id'] if 'peer_id' in raw_data['object'] else self.user_id
         self.action = 'message_new' if 'action' not in raw_data['object'] else raw_data['object']['action']['type']
 
     def __str__(self):

@@ -22,6 +22,7 @@ class MessageHandler:
                 return
         for p in self.plugins:
             if await p.check(msg):
+                await p.after_check(msg)
                 if await self.process_with_plugin(msg, p) is not False:
                     self.bot.logger.debug(f'Finished with message ({msg.msg_id}) on {p.name}')
                     break
