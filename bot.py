@@ -15,7 +15,11 @@ from utils.data import Message, LongpollEvent
 class Bot:
     def __init__(self, settings):
         self.settings = settings
+
+        # Async
         self.loop = asyncio.get_event_loop()
+        self.main_task = None
+
         # Logging
         self.logger = None
         self.logger_file = None
@@ -27,8 +31,12 @@ class Bot:
 
         self.init_logger()
         self.auth()
+
         self.handler = MessageHandler(self, self.api)
-        self.listen_longpoll()
+        try:
+            self.handler.initiate()
+        except Exception as e:
+            self.logger.error(e)
 
     def init_logger(self):
         formatter = logging.Formatter(fmt='%(filename)s [%(asctime)s] %(levelname)s: %(message)s',
@@ -95,32 +103,37 @@ class Bot:
             self.logger.critical('Unexpected auth error!')
             exit()
 
-    def listen_longpoll(self):
+    def longpoll_run(self):
+        self.main_task = Task(self.listen_longpoll())
+        self.logger.info('Started to process messages')
+        try:
+            self.loop.run_until_complete(self.main_task)
+        except (KeyboardInterrupt, SystemExit):
+            self.stop()
+            self.logger.info('Stopped to process messages')
+
+    async def listen_longpoll(self):
         global longpoll
         if self.auth_method == 'group':
-            longpoll = VkBotLongPoll(self.session, self.api.groups.getById()[0]['id'])
+            try:
+                longpoll = VkBotLongPoll(self.session, self.api.groups.getById()[0]['id'])
+            except vk_api.ApiError as e:
+                self.logger.error(e)
         elif self.auth_method == 'user':
             longpoll = VkLongPoll(self.session)
         else:
             self.logger.critical('Unexpected error!')
             exit()
 
-        self.logger.info('Started to process messages')
-        self.handler.initiate()
         try:
             for event in longpoll.listen():
-                if event.type == VkBotEventType.MESSAGE_NEW and 'action' not in event.raw['object']:
-                    try:
-                        task = Task(self.process_message(event.raw['object']))
-                        self.loop.run_until_complete(task)
-                    except Exception as e:
-                        self.logger.error(e)
-                else:
-                    try:
-                        task = Task(self.process_event(event.raw))
-                        self.loop.run_until_complete(task)
-                    except Exception as e:
-                        self.logger.error(e)
+                try:
+                    if event.type == VkBotEventType.MESSAGE_NEW and 'action' not in event.raw['object']:
+                        await self.process_message(event.raw['object'])
+                    else:
+                        await self.process_event(event.raw)
+                except Exception as e:
+                    self.logger.error(e)
         except KeyboardInterrupt:
             self.stop()
 
@@ -138,3 +151,4 @@ class Bot:
 
 if __name__ == '__main__':
     bot = Bot(Settings)
+    bot.longpoll_run()
