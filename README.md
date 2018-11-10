@@ -1,3 +1,4 @@
 # ignis-samurai
+# English
 A VK bot core
-# TOOD
+Requires Python 3.6
