@@ -106,26 +106,29 @@ class Bot:
             exit()
 
         self.logger.info('Started to process messages')
-        self.init_plugins()
+        self.handler.initiate()
         try:
             for event in longpoll.listen():
                 if event.type == VkBotEventType.MESSAGE_NEW and 'action' not in event.raw['object']:
-                    task = Task(self.process_message(event.raw['object']))
-                    self.loop.run_until_complete(task)
+                    try:
+                        task = Task(self.process_message(event.raw['object']))
+                        self.loop.run_until_complete(task)
+                    except Exception as e:
+                        self.logger.error(e)
                 else:
-                    task = Task(self.process_event(event.raw))
-                    self.loop.run_until_complete(task)
+                    try:
+                        task = Task(self.process_event(event.raw))
+                        self.loop.run_until_complete(task)
+                    except Exception as e:
+                        self.logger.error(e)
         except KeyboardInterrupt:
             self.stop()
 
-    def init_plugins(self):
-        self.handler.initiate()
-
     async def process_message(self, data):
-        await asyncio.ensure_future(self.handler.process(Message(self.api, data)))
+        await asyncio.ensure_future(self.handler.process(Message(self.api, data)), loop=self.loop)
 
     async def process_event(self, event):
-        await asyncio.ensure_future(self.handler.process_event(LongpollEvent(self.api, event)))
+        await asyncio.ensure_future(self.handler.process_event(LongpollEvent(self.api, event)), loop=self.loop)
 
     def stop(self):
         self.logger.removeHandler(self.logger_file)

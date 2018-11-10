@@ -60,3 +60,7 @@ class MessageHandler:
             await p.after_event(event, plugin, result)
         return result
 
+    def stop(self):
+        for plugin in self.plugins:
+            self.bot.logger.debug(f'Stopping plugin: {plugin.name}')
+            plugin.stop()

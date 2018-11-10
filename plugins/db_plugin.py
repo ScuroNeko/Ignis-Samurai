@@ -1,6 +1,7 @@
 import peewee
 
 from handler.base_plugin import BasePlugin
+from utils.utils import get_user_name
 
 
 class DemoPlugin(BasePlugin):
@@ -27,10 +28,10 @@ class DemoPlugin(BasePlugin):
         DemoPlugin.user = EconomyUser
 
     async def check(self, msg):
-        cmd = msg.text.split(sep='] ')[::-1][0]
+        cmd = msg.text
         for p in self.prefixes:
             if cmd.startswith(p):
-                cmd = cmd[1:]
+                cmd = cmd[len(p):]
         for c in self.commands:
             if cmd.startswith(c):
                 msg.meta['cmd'] = cmd
@@ -41,18 +42,6 @@ class DemoPlugin(BasePlugin):
         if msg.meta['cmd'] == 'профиль':
             user = await self.pwmanager.get(DemoPlugin.user, user_id=msg.user_id)
             balance = user.balance
-            user = self.api.users.get(user_ids=msg.user_id)[0]
-            return await msg.answer('Hi, {} {}!\n'
-                                    'Your balance: {}'.format(user['first_name'], user['last_name'], balance),
+            return await msg.answer('Hi, {}!\n'
+                                    'Your balance: {}'.format(get_user_name(self.api, user.user_id), balance),
                                     ['photo136950703_456252183', 'photo136950703_456252882'])
-
-    async def check_event(self, event):
-        if event.action == 'chat_title_update':
-            return True
-        return False
-
-    async def process_event(self, event):
-        user = self.api.users.get(user_ids=event.user_id)[0]
-        return self.api.messages.send(peer_id=event.peer_id,
-                                      message='{} {} поменял навание беседы.'.format(user['first_name'],
-                                                                                     user['last_name']))

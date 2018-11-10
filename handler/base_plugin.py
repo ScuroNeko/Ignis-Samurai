@@ -38,6 +38,9 @@ class BasePlugin:
         pass
 
     async def after_check(self, msg):
+        """ Before check command
+        :param msg: Message object
+         """
         pass
 
     async def before_process(self, msg, plugin):
@@ -62,4 +65,7 @@ class BasePlugin:
         pass
 
     async def after_event(self, event, plugin, result):
+        pass
+
+    def stop(self):
         pass

@@ -1,5 +1,7 @@
 from enum import Enum
 
+from utils import utils
+
 
 class Event:
     __slots__ = ('api', 'type', 'meta')
@@ -22,10 +24,16 @@ class Message:
         self.api = api
 
         self.date = self.message_data['date']
+
         self.user_id = self.message_data['from_id']
         self.msg_id = self.message_data['id']
         self.peer_id = self.message_data['peer_id']
-        self.text = self.message_data['text']
+
+        self.full_text = self.message_data['text']
+        self.text = self.message_data['text'].split(sep='] ')[::-1][0].lower() \
+            if self.full_text.startswith('[club{}|'.format(utils.get_self_id(self.api))) \
+            else self.message_data['text']
+
         self.forwarded_messages = self.message_data['fwd_messages']
         self.attachments = self.message_data['attachments']
 

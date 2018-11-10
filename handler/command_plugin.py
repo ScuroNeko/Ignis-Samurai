@@ -8,10 +8,10 @@ class CommandPlugin(BasePlugin):
         self.prefixes = prefixes if prefixes else []
 
     async def check(self, msg):
-        cmd = msg.text.split(sep='] ')[::-1][0]
+        cmd = msg.text
         for p in self.prefixes:
             if cmd.startswith(p):
-                cmd = cmd[1:]
+                cmd = cmd[len(p):]
         for c in self.commands:
             if cmd.startswith(c):
                 msg.meta['cmd'] = cmd

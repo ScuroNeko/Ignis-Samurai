@@ -1,5 +1,6 @@
-from plugins.cmd import CMD
-from plugins.demo_plugin import DemoPlugin
+from plugins.cmd_plugin import CMD
+from plugins.control.antiflood import AntifloodPlugin
+from plugins.db_plugin import DemoPlugin
 from utils.peewee import PeeweePlugin
 
 
@@ -13,7 +14,7 @@ class Settings:
 
     scope = 140489887
     app_id = 6746678
-    prefixes = ('/',)
+    prefixes = ('/', 'бот ', 'бот, ')
     debug = False
 
     plugins = [
@@ -21,5 +22,6 @@ class Settings:
                      'password', 5432,
                      'PostgreSQL'),
         DemoPlugin(prefixes=prefixes),
-        CMD(prefixes=prefixes)
+        CMD('work', prefixes=prefixes),
+        AntifloodPlugin()
     ]
