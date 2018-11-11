@@ -3,6 +3,9 @@ from enum import Enum
 from utils import utils
 
 
+event_ids = {4: 'message_new', 61: 'message_typing_state'}
+
+
 class Event:
     __slots__ = ('api', 'type', 'meta')
 

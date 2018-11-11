@@ -19,7 +19,6 @@ class DemoPlugin(BasePlugin):
 
         class EconomyUser(peewee.Model):
             user_id = peewee.BigIntegerField(primary_key=True, unique=True)
-            pair = peewee.BigIntegerField(default=0)
             balance = peewee.DecimalField(default=10000, max_digits=999, decimal_places=0)
 
             class Meta:

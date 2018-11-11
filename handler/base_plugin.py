@@ -38,7 +38,7 @@ class BasePlugin:
         pass
 
     async def after_check(self, msg):
-        """ Before check command
+        """ After check command
         :param msg: Message object
          """
         pass

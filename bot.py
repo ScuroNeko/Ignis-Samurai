@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
 import asyncio
 import logging
+import sys
+import traceback
 from asyncio import Task
 
 import vk_api
 from vk_api.bot_longpoll import VkBotEventType, VkBotLongPoll
-from vk_api.longpoll import VkLongPoll
+from vk_api.longpoll import VkLongPoll, VkEventType
 
 from handler.handler import MessageHandler
 from settings import Settings
-from utils.data import Message, LongpollEvent
+from utils import utils
+from utils.data import Message, LongpollEvent, event_ids
 
 
 class Bot:
@@ -35,8 +38,8 @@ class Bot:
         self.handler = MessageHandler(self, self.api)
         try:
             self.handler.initiate()
-        except Exception as e:
-            self.logger.error(e)
+        except:
+            self.logger.error(traceback.format_exc())
 
     def init_logger(self):
         formatter = logging.Formatter(fmt='%(filename)s [%(asctime)s] %(levelname)s: %(message)s',
@@ -115,10 +118,7 @@ class Bot:
     async def listen_longpoll(self):
         global longpoll
         if self.auth_method == 'group':
-            try:
-                longpoll = VkBotLongPoll(self.session, self.api.groups.getById()[0]['id'])
-            except vk_api.ApiError as e:
-                self.logger.error(e)
+            longpoll = VkBotLongPoll(self.session, self.api.groups.getById()[0]['id'])
         elif self.auth_method == 'user':
             longpoll = VkLongPoll(self.session)
         else:
@@ -128,25 +128,60 @@ class Bot:
         try:
             for event in longpoll.listen():
                 try:
-                    if event.type == VkBotEventType.MESSAGE_NEW and 'action' not in event.raw['object']:
-                        await self.process_message(event.raw['object'])
+                    if self.auth_method == 'group':
+                        if event.type == VkBotEventType.MESSAGE_NEW and 'action' not in event.raw['object']:
+                            msg = Message(self.api, event.raw['object'])
+                            await self.process_message(msg)
+                        else:
+                            event = LongpollEvent(self.api, event.raw)
+                            await self.process_event(event)
                     else:
-                        await self.process_event(event.raw)
-                except Exception as e:
-                    self.logger.error(e)
+                        if event.type == VkEventType.MESSAGE_NEW and 'source_act' in event.raw[6]:
+                            data = {
+                                'type': event_ids[event.raw[0]],
+                                'object': {
+                                    'date': event.raw[4],
+                                    'from_id': event.raw[6]['from'],
+                                    'peer_id': event.raw[3],
+                                    'action': {'type': event.raw[6]['source_act']}
+                                },
+                                'original': event.raw
+                            }
+                            event = LongpollEvent(self.api, data)
+                            await self.process_event(event)
+                        elif event.type == VkEventType.MESSAGE_NEW:
+                            if 'fwd' in event.raw[7]:
+                                event.raw[7].pop('fwd')
+                            data = {
+                                'date': event.raw[4],
+                                'from_id': event.raw[6]['from'],
+                                'id': event.raw[1],
+                                'peer_id': event.raw[3],
+                                'text': event.raw[5],
+                                'attachments': event.raw[7],
+                                'fwd_messages': []
+                            }
+                            msg = Message(self.api, data)
+                            await self.process_message(msg)
+                except:
+                    self.logger.error(traceback.format_exc())
         except KeyboardInterrupt:
             self.stop()
 
-    async def process_message(self, data):
-        await asyncio.ensure_future(self.handler.process(Message(self.api, data)), loop=self.loop)
+    async def process_message(self, msg):
+        await asyncio.ensure_future(self.handler.process(msg), loop=self.loop)
 
     async def process_event(self, event):
-        await asyncio.ensure_future(self.handler.process_event(LongpollEvent(self.api, event)), loop=self.loop)
+        await asyncio.ensure_future(self.handler.process_event(event), loop=self.loop)
 
     def stop(self):
-        self.logger.removeHandler(self.logger_file)
-        self.logger_file.close()
-        self.logger.info('Stopped to process messages')
+        try:
+            self.loop.stop()
+            self.logger.removeHandler(self.logger_file)
+            self.logger_file.close()
+            self.logger.info('Stopped to process messages')
+        except:
+            print(traceback.format_exc())
 
 
 if __name__ == '__main__':
