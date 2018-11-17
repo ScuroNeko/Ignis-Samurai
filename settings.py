@@ -1,7 +1,8 @@
-from plugins.cmd_plugin import CMD
+from plugins.demo.cmd_plugin import CMD
 from plugins.control.antiflood import AntifloodPlugin
-from plugins.control.vk_functions import VKFunctions
-from plugins.db_plugin import DemoPlugin
+from plugins.demo.keyboard import KeyboardPlugin
+from plugins.demo.vk_functions import VKFunctions
+from plugins.demo.db_plugin import DemoPlugin
 from utils.peewee import PeeweePlugin
 
 
@@ -24,6 +25,7 @@ class Settings:
                      'PostgreSQL'),
         DemoPlugin(prefixes=prefixes),
         CMD('work', prefixes=prefixes),
+        KeyboardPlugin(prefixes=prefixes),
         VKFunctions(),
         AntifloodPlugin()
     ]
