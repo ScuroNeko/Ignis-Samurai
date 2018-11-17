@@ -1,18 +1,16 @@
 # -*- coding: utf-8 -*-
 import asyncio
 import logging
-import sys
 import traceback
 from asyncio import Task
 
 import vk_api
-from vk_api.bot_longpoll import VkBotEventType, VkBotLongPoll
-from vk_api.longpoll import VkLongPoll, VkEventType
+from vk_api.bot_longpoll import VkBotEventType
+from vk_api.longpoll import VkEventType
 
 from handler.handler import MessageHandler
 from settings import Settings
-from utils import utils
-from utils.data import Message, LongpollEvent, event_ids
+from utils.data import Message, LongpollEvent, event_ids, MyVkBotLongPoll, MyVkLongPoll
 
 
 class Bot:
@@ -118,9 +116,9 @@ class Bot:
     async def listen_longpoll(self):
         global longpoll
         if self.auth_method == 'group':
-            longpoll = VkBotLongPoll(self.session, self.api.groups.getById()[0]['id'])
+            longpoll = MyVkBotLongPoll(self.session, self.api.groups.getById()[0]['id'])
         elif self.auth_method == 'user':
-            longpoll = VkLongPoll(self.session)
+            longpoll = MyVkLongPoll(self.session)
         else:
             self.logger.critical('Unexpected error!')
             exit()

@@ -11,8 +11,8 @@ class VKFunctions(BasePlugin):
     def init(self):
         asyncio.ensure_future(self.work())
 
-    def work(self):
+    async def work(self):
         while True:
             if self.api.groups.getOnlineStatus(group_id=utils.get_self_id(self.api))['status'] != 'online':
                 self.api.groups.enableOnline(group_id=utils.get_self_id(self.api))
-            asyncio.sleep(1)
+            await asyncio.sleep(1)

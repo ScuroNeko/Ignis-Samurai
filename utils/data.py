@@ -1,5 +1,9 @@
 from enum import Enum
 
+import requests
+from vk_api.bot_longpoll import VkBotLongPoll
+from vk_api.longpoll import VkLongPoll
+
 from utils import utils
 
 
@@ -42,16 +46,18 @@ class Message:
 
         self.meta = {}
 
-    async def answer(self, msg, attachments=''):
+    async def answer(self, msg, attachments='', keyboard=None):
         if attachments:
             if isinstance(attachments, str):
                 attachments = attachments
             elif isinstance(attachments, (set, frozenset, tuple, list)):
                 attachments = ','.join(attachments)
-        self.api.messages.send(peer_id=self.peer_id,
-                               message=msg,
-                               attachment=attachments)
-        return
+        data = {'peer_id': self.peer_id,
+                'message': msg,
+                'attachments': attachments}
+        if keyboard:
+            data.update({'keyboard': keyboard.get_keyboard()})
+        return self.api.messages.send(**data)
 
 
 class LongpollEvent(Event):
@@ -65,3 +71,25 @@ class LongpollEvent(Event):
 
     def __str__(self):
         return f'LongpollEvent ({self.type})'
+
+
+class MyVkBotLongPoll(VkBotLongPoll):
+    def listen(self):
+        while True:
+            try:
+                for event in self.check():
+                    yield event
+            except requests.ReadTimeout:
+                self.session = requests.Session()
+                self.update_longpoll_server()
+
+
+class MyVkLongPoll(VkLongPoll):
+    def listen(self):
+        while True:
+            try:
+                for event in self.check():
+                    yield event
+            except requests.ReadTimeout:
+                self.session = requests.Session()
+                self.update_longpoll_server()
