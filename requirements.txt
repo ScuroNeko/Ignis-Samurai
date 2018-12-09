@@ -1,0 +1,4 @@
+requests
+discord
+vk_api
+peewee_async
