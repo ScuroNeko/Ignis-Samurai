@@ -1,8 +1,0 @@
-asyncio
-vk_api
-
-# Data and Bases
-peewee
-peewee_async
-aiopg
-psycopg2-binary
