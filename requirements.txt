@@ -3,6 +3,7 @@ vk_api
 
 # Data and Bases
 peewee
-peewee_async
-aiopg
+peewee_async==0.6.0a
+aiopgс
 psycopg2-binary
+aiomysql
