@@ -59,10 +59,11 @@ def plural_form(number: int, variants: (list, tuple)):
 
 def get_self_id(api):
     from settings import Settings
-    if Settings.auth[0] == 'group':
-        return api.groups.getById()[0]['id']
-    else:
-        return api.users.get()[0]['id']
+    for auth in Settings.auth:
+        if auth[0] == 'vk_group':
+            return api.groups.getById()[0]['id']
+        elif auth[0] == 'vk_user':
+            return api.users.get()[0]['id']
 
 
 def user_raw_to_data(raw: list) -> dict:

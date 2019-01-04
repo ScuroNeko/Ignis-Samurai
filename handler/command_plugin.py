@@ -1,7 +1,7 @@
-from .vk_plugin import VKPlugin
+from handler.base_plugin import BasePlugin
 
 
-class VKCommandPlugin(VKPlugin):
+class CommandPlugin(BasePlugin):
     def __init__(self, commands, prefixes):
         self.commands = commands
         self.prefixes = prefixes

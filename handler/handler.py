@@ -1,5 +1,7 @@
+from handler.base_plugin import BasePlugin
 from handler.ds.discord_plugin import DiscordPlugin
 from handler.vk.vk_plugin import VKPlugin
+from utils.data import VkMessage, DSMessage
 
 
 class VkHandler:
@@ -58,13 +60,48 @@ class DiscordHandler:
             self.bot.logger.debug('Init: {}'.format(plugin.name))
             plugin.init()
 
-    async def process(self, msg):
+    async def process(self, msg: DSMessage):
         for p in self.plugins:
             if await p.check(msg) and await self.process_with_plugin(msg, p) is not False:
                 self.bot.logger.debug(f'Finished with message ({msg.id}) on {p.name}')
                 break
         else:
             self.bot.logger.debug(f'Processed message ({msg.id})')
+
+    async def process_with_plugin(self, msg, plugin):
+        result = await plugin.msg_process(msg)
+        return result
+
+    def stop(self):
+        for plugin in self.plugins:
+            self.bot.logger.debug(f'Stopping plugin: {plugin.name}')
+            plugin.stop()
+
+
+class Handler:
+    def __init__(self, client, api, bot):
+        self.client = client
+        self.bot = bot
+        self.api = api
+        self.plugins = []
+        for plugin in bot.settings.plugins:
+            if isinstance(plugin, BasePlugin):
+                plugin.set_up(self.bot, self.client, self.api, self)
+                self.plugins.append(plugin)
+
+    def initiate(self):
+        for plugin in self.plugins:
+            self.bot.logger.debug('Init: {}'.format(plugin.name))
+            plugin.init()
+
+    async def process(self, msg):
+        print(self.plugins)
+        for p in self.plugins:
+            if await p.check(msg) and await self.process_with_plugin(msg, p) is not False:
+                self.bot.logger.debug(f'Finished with message ({msg.msg_id if isinstance(msg, VkMessage) else msg.id}) on {p.name}')
+                break
+        else:
+            self.bot.logger.debug(f'Processed message ({msg.msg_id if isinstance(msg, VkMessage) else msg.id})')
 
     async def process_with_plugin(self, msg, plugin):
         result = await plugin.msg_process(msg)

@@ -8,7 +8,7 @@ from vk_api import VkApi, ApiError, Captcha
 from vk_api.bot_longpoll import VkBotEventType
 from vk_api.longpoll import VkEventType
 
-from handler.handler import VkHandler, DiscordHandler
+from handler.handler import VkHandler, DiscordHandler, Handler
 from settings import Settings
 from utils import utils
 from utils.data import MyVkBotLongPoll, MyVkLongPoll, VkMessage, DSMessage, StoppableThread
@@ -17,7 +17,11 @@ from utils.data import MyVkBotLongPoll, MyVkLongPoll, VkMessage, DSMessage, Stop
 class Bot:
     __client = Client()
     __ds_handler = None
-    __loop = None
+
+    __vk_auth_type: str = None
+
+    __handler = None
+    __loop: asyncio.events.AbstractEventLoop = None
     __logger = None
 
     def __init__(self, settings):
@@ -43,6 +47,7 @@ class Bot:
             self.api = None
             self.vk_auth_type = ''
             self.vk_auth()
+            Bot.__vk_auth_type = self.vk_auth_type
 
             # Discord
             self.ds_client = Bot.__client
@@ -51,6 +56,8 @@ class Bot:
 
             self.vk_handler = VkHandler(self.api, self)
             self.ds_handler = DiscordHandler(self.ds_client, self)
+            self.handler = Handler(self.ds_client, self.api, self)
+            Bot.__handler = self.handler
             Bot.__ds_handler = self.ds_handler
             Bot.__loop = self.loop
             Bot.__logger = self.logger
@@ -146,7 +153,10 @@ class Bot:
     @staticmethod
     @__client.event
     async def on_message(message):
-        await asyncio.ensure_future(Bot.__ds_handler.process(DSMessage(message, Bot.__client)), loop=Bot.__loop)
+        if Bot.__vk_auth_type:
+            await asyncio.ensure_future(Bot.__handler.process(DSMessage(message, Bot.__client)), loop=Bot.__loop)
+        else:
+            await asyncio.ensure_future(Bot.__ds_handler.process(DSMessage(message, Bot.__client)), loop=Bot.__loop)
 
     @staticmethod
     @__client.event
@@ -179,7 +189,12 @@ class Bot:
             self.logger.error(traceback.format_exc())
 
     def process_vk_msg(self, msg):
-        asyncio.ensure_future(self.vk_handler.process(msg), loop=self.loop)
+        if self.ds_token:
+            asyncio.ensure_future(self.handler.process(msg), loop=self.loop)
+            # self.loop.run_until_complete(self.handler.process(msg))
+        else:
+            asyncio.ensure_future(self.vk_handler.process(msg), loop=self.loop)
+            # self.loop.run_until_complete(self.vk_handler.process(msg))
 
     async def stop(self):
         try:

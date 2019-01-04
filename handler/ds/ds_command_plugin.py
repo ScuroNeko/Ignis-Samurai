@@ -12,6 +12,7 @@ class DSCommandPlugin(DiscordPlugin):
         for p in self.prefixes:
             if msg.text.startswith(p):
                 text = msg.text[len(p):]
+                break
             else:
                 return False
         for c in self.commands:

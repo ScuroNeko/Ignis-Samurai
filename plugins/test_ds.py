@@ -13,6 +13,7 @@ class TestDSPlugin(DSCommandPlugin):
         super().__init__(self.commands, prefixes)
 
     async def msg_process(self, msg):
+        print(msg.text)
         embed = Embed(colour=0x00ffff, title='Привет! Я тестовое название с ссылкой!',
                       description='Привет! А я тестовое описание с ссылкой!',
                       url='https://github.com/Nix1304/Ignis-Samurai')
