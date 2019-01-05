@@ -7,5 +7,5 @@ class Ping(CommandPlugin):
         self.prefixes = prefixes
         super().__init__(self.commands, self.prefixes)
 
-    async def msg_process(self, msg):
-        return await msg.answer('Pong!')
+    def msg_process(self, msg):
+        return msg.answer('Pong!')

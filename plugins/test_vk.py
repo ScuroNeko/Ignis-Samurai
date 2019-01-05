@@ -10,5 +10,5 @@ class TestPlugin(VKCommandPlugin):
         self.commands = ['test']
         super().__init__(self.commands, prefixes)
 
-    async def msg_process(self, msg):
-        return await msg.answer('TEST')
+    def msg_process(self, msg):
+        return msg.answer('TEST')

@@ -35,40 +35,40 @@ class BasePlugin:
         """
         pass
 
-    async def before_check(self, msg) -> bool:
+    def before_check(self, msg) -> bool:
         """ Method execute before check
         :param msg: Message class
         :return: True if plugin needs check
         """
         pass
 
-    async def check(self, msg) -> bool:
+    def check(self, msg) -> bool:
         """ Method execute for check if before_check() return True
         :param msg: Message class
         :return: True if plugin needs process
         """
         pass
 
-    async def after_check(self, msg) -> None:
+    def after_check(self, msg) -> None:
         """ Method execute after check if check() return True
         :param msg: Message class
         """
         pass
 
-    async def before_msg_process(self, msg, plugin) -> None:
+    def before_msg_process(self, msg, plugin) -> None:
         """ Method execute before message process
         :param msg: Message class
         :param plugin: Plugin class
         """
         pass
 
-    async def msg_process(self, msg) -> None:
+    def msg_process(self, msg) -> None:
         """ Method for message process
         :param msg: Message class
         """
         pass
 
-    async def after_msg_process(self, msg) -> None:
+    def after_msg_process(self, msg) -> None:
         """ Method execute after message process
         :param msg: Message class
         """

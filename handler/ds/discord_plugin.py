@@ -22,14 +22,14 @@ class DiscordPlugin:
         """
         pass
 
-    async def check(self, msg) -> bool:
+    def check(self, msg) -> bool:
         """ Method execute for check if before_check() return True
         :param msg: Message class
         :return: True if plugin needs process
         """
         pass
 
-    async def msg_process(self, msg) -> None:
+    def msg_process(self, msg) -> None:
         """ Method for message process
         :param msg: Message class
         """

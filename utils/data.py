@@ -1,6 +1,7 @@
 import threading
 from enum import Enum
 
+import asyncio
 import requests
 from discord import HTTPException
 from vk_api.bot_longpoll import VkBotLongPoll
@@ -55,7 +56,7 @@ class VkMessage:
 
         self.meta = {}
 
-    async def answer(self, msg, attachments='', keyboard=None):
+    def answer(self, msg, attachments='', keyboard=None):
         data = {'peer_id': self.peer_id,
                 'message': msg}
         if attachments:
@@ -111,10 +112,12 @@ class DSMessage:
 
         self.meta = {}
 
-    async def answer(self, text='', embed=None, tts=False):
+    def answer(self, text='', embed=None, tts=False):
         try:
-            await self.client.send_message(self.channel, text, embed=embed, tts=tts)
-        except HTTPException:
+            loop = asyncio.get_event_loop()
+            loop.run_until_complete(self.client.send_message(self.channel, text, embed=embed, tts=tts))
+            loop.close()
+        except (HTTPException, RuntimeError):
             pass
 
 

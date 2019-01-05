@@ -1,6 +1,7 @@
 import asyncio
 import logging
 import traceback
+from threading import Thread
 
 import requests
 from discord import Client
@@ -21,14 +22,11 @@ class Bot:
     __vk_auth_type: str = None
 
     __handler = None
-    __loop: asyncio.events.AbstractEventLoop = None
     __logger = None
 
     def __init__(self, settings):
         try:
             self.settings = settings
-
-            self.loop = asyncio.get_event_loop()
 
             self.vk_t = StoppableThread(target=self.processor)
             self.ds_t = StoppableThread(target=self.ds_processor)
@@ -59,12 +57,11 @@ class Bot:
             self.handler = Handler(self.ds_client, self.api, self)
             Bot.__handler = self.handler
             Bot.__ds_handler = self.ds_handler
-            Bot.__loop = self.loop
             Bot.__logger = self.logger
 
             self.run()
         except(KeyboardInterrupt, SystemExit):
-            self.loop.run_until_complete(self.stop())
+            self.stop()
 
     def init_logger(self):
         formatter = logging.Formatter(fmt='%(filename)s [%(asctime)s] %(levelname)s: %(message)s',
@@ -154,9 +151,9 @@ class Bot:
     @__client.event
     async def on_message(message):
         if Bot.__vk_auth_type:
-            await asyncio.ensure_future(Bot.__handler.process(DSMessage(message, Bot.__client)), loop=Bot.__loop)
+            Thread(Bot.__handler.process(DSMessage(message, Bot.__client))).start()
         else:
-            await asyncio.ensure_future(Bot.__ds_handler.process(DSMessage(message, Bot.__client)), loop=Bot.__loop)
+            Thread(Bot.__ds_handler.process(DSMessage(message, Bot.__client))).start()
 
     @staticmethod
     @__client.event
@@ -167,8 +164,10 @@ class Bot:
         self.logger.info('Started to process messages')
 
         try:
-            self.vk_t.start()
-            self.ds_t.start()
+            if self.vk_auth_type:
+                self.vk_t.start()
+            if self.ds_token:
+                self.ds_t.start()
         except asyncio.CancelledError:
             pass
 
@@ -176,8 +175,10 @@ class Bot:
         Bot.__client.run(self.ds_token)
 
     def processor(self):
-        longpoll = MyVkBotLongPoll(self.session, utils.get_self_id(self.api)) if self.vk_auth_type == 'vk_group'\
-            else MyVkLongPoll(self.session)
+        if self.vk_auth_type == 'vk_group':
+            longpoll = MyVkBotLongPoll(self.session, utils.get_self_id(self.api))
+        else:
+            longpoll = MyVkLongPoll(self.session)
         try:
             for event in longpoll.listen():
                 if event.type == VkBotEventType.MESSAGE_NEW:
@@ -190,15 +191,12 @@ class Bot:
 
     def process_vk_msg(self, msg):
         if self.ds_token:
-            asyncio.ensure_future(self.handler.process(msg), loop=self.loop)
-            # self.loop.run_until_complete(self.handler.process(msg))
+            Thread(target=self.handler.process, args=[msg]).start()
         else:
-            asyncio.ensure_future(self.vk_handler.process(msg), loop=self.loop)
-            # self.loop.run_until_complete(self.vk_handler.process(msg))
+            Thread(target=self.vk_handler.process, args=[msg]).start()
 
     async def stop(self):
         try:
-            self.loop.stop()
             self.ds_t.stop()
             self.vk_t.stop()
             self.logger.removeHandler(self.logger_file)
