@@ -12,8 +12,7 @@ class TestDSPlugin(DSCommandPlugin):
         self.commands = ['test']
         super().__init__(self.commands, prefixes)
 
-    async def msg_process(self, msg):
-        print(msg.text)
+    def msg_process(self, msg):
         embed = Embed(colour=0x00ffff, title='Привет! Я тестовое название с ссылкой!',
                       description='Привет! А я тестовое описание с ссылкой!',
                       url='https://github.com/Nix1304/Ignis-Samurai')
@@ -22,4 +21,4 @@ class TestDSPlugin(DSCommandPlugin):
         embed.add_field(name='Имя канала', value=msg.channel.name)
         embed.add_field(name='Имя сервера', value=msg.server.name)
         embed.set_footer(text='Я подвал.')
-        return await msg.answer(embed=embed)
+        return msg.answer(embed=embed)

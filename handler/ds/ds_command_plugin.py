@@ -7,7 +7,7 @@ class DSCommandPlugin(DiscordPlugin):
         self.prefixes = prefixes
         super().__init__()
 
-    async def check(self, msg):
+    def check(self, msg):
         text = ''
         for p in self.prefixes:
             if msg.text.startswith(p):

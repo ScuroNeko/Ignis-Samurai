@@ -1,7 +1,7 @@
 from handler.base_plugin import BasePlugin
 from handler.ds.discord_plugin import DiscordPlugin
 from handler.vk.vk_plugin import VKPlugin
-from utils.data import VkMessage, DSMessage
+from utils.data import VkMessage
 
 
 class VkHandler:
@@ -12,6 +12,8 @@ class VkHandler:
         for plugin in bot.settings.plugins:
             if isinstance(plugin, VKPlugin):
                 plugin.set_up(self.bot, self.api, self)
+                self.plugins.append(plugin)
+            elif isinstance(plugin, BasePlugin):
                 self.plugins.append(plugin)
 
     def initiate(self):
@@ -53,6 +55,8 @@ class DiscordHandler:
         for plugin in bot.settings.plugins:
             if isinstance(plugin, DiscordPlugin):
                 plugin.set_up(self.bot, self.client, self)
+                self.plugins.append(plugin)
+            elif isinstance(plugin, BasePlugin):
                 self.plugins.append(plugin)
 
     def initiate(self):

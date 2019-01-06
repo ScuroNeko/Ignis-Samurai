@@ -15,6 +15,7 @@ class VKCommandPlugin(VKPlugin):
                 break
             else:
                 return False
+
         for c in self.commands:
             if text.startswith(c):
                 msg.meta['full'] = text
