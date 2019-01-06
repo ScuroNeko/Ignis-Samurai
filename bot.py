@@ -55,6 +55,14 @@ class Bot:
             self.vk_handler = VkHandler(self.api, self)
             self.ds_handler = DiscordHandler(self.ds_client, self)
             self.handler = Handler(self.ds_client, self.api, self)
+
+            try:
+                self.vk_handler.initiate()
+                self.ds_handler.initiate()
+                self.handler.initiate()
+            except:
+                self.logger.error(traceback.format_exc())
+
             Bot.__handler = self.handler
             Bot.__ds_handler = self.ds_handler
             Bot.__logger = self.logger

@@ -96,10 +96,13 @@ class Handler:
     def initiate(self):
         for plugin in self.plugins:
             self.bot.logger.debug('Init: {}'.format(plugin.name))
+            plugin.pre_init()
             plugin.init()
+            plugin.post_init()
 
     def process(self, msg):
         for p in self.plugins:
+            p.before_check(msg)
             if p.check(msg) and self.process_with_plugin(msg, p) is not False:
                 self.bot.logger.debug(f'Finished with message ({msg.msg_id if isinstance(msg, VkMessage) else msg.id}) on {p.name}')
                 break
@@ -107,7 +110,10 @@ class Handler:
             self.bot.logger.debug(f'Processed message ({msg.msg_id if isinstance(msg, VkMessage) else msg.id})')
 
     def process_with_plugin(self, msg, plugin):
+        plugin.after_check(msg)
+        plugin.before_msg_process(msg, plugin)
         result = plugin.msg_process(msg)
+        plugin.after_msg_process(msg, plugin)
         return result
 
     def stop(self):
