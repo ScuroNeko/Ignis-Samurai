@@ -74,21 +74,19 @@ class VkMessage:
 
 class VkEvent:
     def __init__(self, session, raw_event):
-        self.raw = raw_event['object']
+        self.raw: dict = raw_event['object']
         self.session = session
 
         self.date = self.raw['date']
         self.user_id = self.raw['from_id']
         self.peer_id = self.raw['peer_id']
 
-        self.action = self.raw['action']
+        self.action: dict = self.raw['action']
+
         self.type = self.action['type']
-
-        self.member_id = self.action['member_id'] if self.type in ['chat_kick_user', 'chat_invite_user',
-                                                                   'chat_unpin_message', 'chat_pin_message'] else 0
-
-        self.message_id = self.action['conversation_message_id'] if self.type in ['chat_unpin_message', 'chat_pin_message'] else 0
-        self.text = self.action['text'] if self.type in ['chat_title_update'] else ''
+        self.member_id = self.action.get('member_id', 0)
+        self.message_id = self.action.get('conversation_message_id', 0)
+        self.text = self.action.get('text', '')
 
 
 class VkLongpollEvent(Event):
