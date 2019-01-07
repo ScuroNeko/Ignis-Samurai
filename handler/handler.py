@@ -41,6 +41,15 @@ class VkHandler:
         result = plugin.msg_process(msg)
         return result
 
+    def process_event(self, event):
+        for p in self.plugins:
+            if p.event_check(event):
+                p.event_process(event)
+                self.bot.logger.debug(f'Finished with event ({event.type}) on {p.name}')
+                break
+        else:
+            self.bot.logger.debug(f'Processed event ({event.type})')
+
     def stop(self):
         for plugin in self.plugins:
             self.bot.logger.debug(f'Stopping plugin: {plugin.name}')
@@ -115,6 +124,15 @@ class Handler:
         result = plugin.msg_process(msg)
         plugin.after_msg_process(msg, plugin)
         return result
+
+    def process_event(self, event):
+        for p in self.plugins:
+            if p.event_check(event):
+                p.event_process(event)
+                self.bot.logger.debug(f'Finished with event ({event.type}) on {p.name}')
+                break
+        else:
+            self.bot.logger.debug(f'Processed event ({event.type})')
 
     def stop(self):
         for plugin in self.plugins:

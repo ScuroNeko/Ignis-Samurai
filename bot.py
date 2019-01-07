@@ -12,7 +12,7 @@ from vk_api.longpoll import VkEventType
 from handler.handler import VkHandler, DiscordHandler, Handler
 from settings import Settings
 from utils import utils
-from utils.data import MyVkBotLongPoll, MyVkLongPoll, VkMessage, DSMessage, StoppableThread
+from utils.data import MyVkBotLongPoll, MyVkLongPoll, VkMessage, DSMessage, StoppableThread, VkEvent
 
 
 class Bot:
@@ -189,11 +189,12 @@ class Bot:
             longpoll = MyVkLongPoll(self.session)
         try:
             for event in longpoll.listen():
-                if event.type == VkBotEventType.MESSAGE_NEW:
+                if event.type == VkBotEventType.MESSAGE_NEW and 'action' in event.raw['object']:
+                    self.process_vk_event(VkEvent(self.session, event.raw))
+                elif event.type == VkBotEventType.MESSAGE_NEW:
                     self.process_vk_msg(VkMessage(self.session, event.raw))
                 elif event.type == VkEventType.MESSAGE_NEW:
                     self.process_vk_msg(VkMessage(self.session, utils.user_raw_to_data(event.raw)))
-
         except:
             self.logger.error(traceback.format_exc())
 
@@ -202,6 +203,12 @@ class Bot:
             Thread(target=self.handler.process, args=[msg]).start()
         else:
             Thread(target=self.vk_handler.process, args=[msg]).start()
+
+    def process_vk_event(self, event):
+        if self.ds_token:
+            Thread(target=self.handler.process_event, args=[event]).start()
+        else:
+            Thread(target=self.vk_handler.process_event, args=[event]).start()
 
     async def stop(self):
         try:

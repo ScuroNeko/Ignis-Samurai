@@ -61,5 +61,17 @@ class VKPlugin:
         """
         pass
 
+    def event_check(self, event) -> bool:
+        """ Return True if plugin will be process by plugin
+        :param event: Event class
+        :return:
+        """
+
+    def event_process(self, event) -> None:
+        """ Method for process event
+        :param event: Event class
+        :return:
+        """
+
     def stop(self):
         pass

@@ -22,6 +22,6 @@ class Ping(CommandPlugin):
         self.user = User
 
     def msg_process(self, msg):
-        user, c = self.user.get_or_create(user_id=msg.user_id)
+        user = self.user.get(user_id=msg.user_id)
         print('Your balance: ' + str(user.balance))
         return msg.answer('Pong!')
