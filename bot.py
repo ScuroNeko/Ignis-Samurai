@@ -9,10 +9,10 @@ from vk_api import VkApi, ApiError, Captcha
 from vk_api.bot_longpoll import VkBotEventType
 from vk_api.longpoll import VkEventType
 
-from handler.handler import VkHandler, DiscordHandler, Handler
+from handler.handler import VkHandler, DiscordHandler
 from settings import Settings
 from utils import utils
-from utils.data import MyVkBotLongPoll, MyVkLongPoll, VkMessage, DSMessage, StoppableThread, VkEvent
+from utils.data import MyVkBotLongPoll, MyVkLongPoll, VKMessage, DSMessage, StoppableThread, VKEvent
 
 
 class Bot:
@@ -21,7 +21,6 @@ class Bot:
 
     __vk_auth_type: str = None
 
-    __handler = None
     __logger = None
 
     def __init__(self, settings):
@@ -48,32 +47,32 @@ class Bot:
             Bot.__vk_auth_type = self.vk_auth_type
 
             # Discord
-            self.ds_client = Bot.__client
             self.ds_token = ''
             self.ds_auth()
+            self.ds_client = None
+            if self.ds_token:
+                self.ds_client = Bot.__client
 
-            self.vk_handler = VkHandler(self.api, self)
-            self.ds_handler = DiscordHandler(self.ds_client, self)
-            self.handler = Handler(self.ds_client, self.api, self)
-
-            try:
+            if self.vk_auth_type:
+                self.vk_handler = VkHandler(self.ds_client, self.api, self)
                 self.vk_handler.initiate()
-                self.ds_handler.initiate()
-                self.handler.initiate()
-            except:
-                self.logger.error(traceback.format_exc())
 
-            Bot.__handler = self.handler
-            Bot.__ds_handler = self.ds_handler
+            if self.ds_token:
+                self.ds_handler = DiscordHandler(self.ds_client, self.api, self)
+                self.ds_handler.initiate()
+                Bot.__ds_handler = self.ds_handler
+
             Bot.__logger = self.logger
 
             self.run()
         except(KeyboardInterrupt, SystemExit):
             self.stop()
+        except:
+            self.logger.error(traceback.format_exc())
 
     def init_logger(self):
         formatter = logging.Formatter(fmt='%(filename)s [%(asctime)s] %(levelname)s: %(message)s',
-                                      datefmt='%d-%m-%Y %H:%M:%S')
+                                      datefmt='%d.%m.%Y %H:%M:%S')
         level = logging.DEBUG if self.settings.debug else logging.INFO
         self.logger = logging.Logger('bot', level=level)
 
@@ -158,10 +157,7 @@ class Bot:
     @staticmethod
     @__client.event
     async def on_message(message):
-        if Bot.__vk_auth_type:
-            Thread(Bot.__handler.process(DSMessage(message, Bot.__client))).start()
-        else:
-            Thread(Bot.__ds_handler.process(DSMessage(message, Bot.__client))).start()
+        Thread(target=Bot.__ds_handler.process(DSMessage(message, Bot.__client))).start()
 
     @staticmethod
     @__client.event
@@ -190,30 +186,26 @@ class Bot:
         try:
             for event in longpoll.listen():
                 if event.type == VkBotEventType.MESSAGE_NEW and 'action' in event.raw['object']:
-                    self.process_vk_event(VkEvent(self.session, event.raw))
+                    self.process_vk_event(VKEvent(self.session, event.raw))
                 elif event.type == VkBotEventType.MESSAGE_NEW:
-                    self.process_vk_msg(VkMessage(self.session, event.raw))
+                    self.process_vk_msg(VKMessage(self.session, event.raw))
                 elif event.type == VkEventType.MESSAGE_NEW:
-                    self.process_vk_msg(VkMessage(self.session, utils.user_raw_to_data(event.raw)))
+                    self.process_vk_msg(VKMessage(self.session, utils.user_raw_to_data(event.raw)))
         except:
             self.logger.error(traceback.format_exc())
 
     def process_vk_msg(self, msg):
-        if self.ds_token:
-            Thread(target=self.handler.process, args=[msg]).start()
-        else:
-            Thread(target=self.vk_handler.process, args=[msg]).start()
+        Thread(target=self.vk_handler.process, args=[msg]).start()
 
     def process_vk_event(self, event):
-        if self.ds_token:
-            Thread(target=self.handler.process_event, args=[event]).start()
-        else:
-            Thread(target=self.vk_handler.process_event, args=[event]).start()
+        Thread(target=self.vk_handler.process_event, args=[event]).start()
 
-    async def stop(self):
+    def stop(self):
         try:
-            self.ds_t.stop()
-            self.vk_t.stop()
+            if self.ds_t.is_alive():
+                self.ds_t.stop()
+            if self.vk_t.is_alive():
+                self.vk_t.stop()
             self.logger.removeHandler(self.logger_file)
             self.logger_file.close()
             self.logger.info('Stopped to process messages')

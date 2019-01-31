@@ -1,5 +1,5 @@
 from plugins.ping import Ping
-from plugins.test_vk import TestPlugin
+from plugins.test_vk import TestVKPlugin
 from plugins.test_ds import TestDSPlugin
 from utils.peewee import PeeweePlugin
 
@@ -11,8 +11,8 @@ class Settings:
     """
 
     # 100% работает.
-    auth = (('vk_group', 'token'),
-            ('ds_bot', 'token'))
+    auth = (('vk_group', 'TOKEN'),
+            ('ds_bot', 'TOKEN'),)
 
     scope = 1073741823
     app_id = 6746678
@@ -24,6 +24,6 @@ class Settings:
                      'password', 5432,
                      'PostgreSQL'),
         Ping(prefixes),
-        TestPlugin(prefixes),
+        TestVKPlugin(prefixes),
         TestDSPlugin(prefixes)
     ]
