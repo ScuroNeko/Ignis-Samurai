@@ -1,4 +1,5 @@
-**Ignis Samurai V2.2**
+**Ignis Samurai V2.2.1**
+-
 
 Требуется Python 3.6
 
