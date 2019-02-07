@@ -1,5 +1,5 @@
 **Ignis Samurai V2.2.1**
--у
+-
 
 Требуется Python 3.6
 
