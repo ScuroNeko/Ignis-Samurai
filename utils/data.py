@@ -46,10 +46,8 @@ class VKMessage:
         self.original_text = self.message_data['text']
         self.full_text = self.message_data['text'].split(sep='] ')[::-1][0].lower() \
             if self.original_text.startswith('[club{}|'.format(utils.get_self_id(self.api))) \
-            else self.message_data['text'].lower()
-        self.text = self.message_data['text'].split(sep='] ')[::-1][0].lower() \
-            if self.full_text.startswith('[club{}|'.format(utils.get_self_id(self.api))) \
-            else self.message_data['text'].lower()
+            else self.message_data['text']
+        self.text = self.full_text.lower()
 
         self.forwarded_messages = self.message_data['fwd_messages']
         self.attachments = self.message_data['attachments']
