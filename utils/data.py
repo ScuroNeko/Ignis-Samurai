@@ -44,7 +44,7 @@ class VKMessage:
         self.chat_id = self.peer_id - 2000000000
 
         self.original_text = self.message_data['text']
-        self.full_text = self.message_data['text'].split(sep='] ')[::-1][0].lower() \
+        self.full_text = self.message_data['text'].split(sep='] ')[::-1][0] \
             if self.original_text.startswith('[club{}|'.format(utils.get_self_id(self.api))) \
             else self.message_data['text']
         self.text = self.full_text.lower()
