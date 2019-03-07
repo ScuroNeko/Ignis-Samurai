@@ -1,74 +1,75 @@
-import asyncio
 import logging
-import traceback
 from threading import Thread
 
-import requests
-from discord import Client
-from vk_api import VkApi, ApiError, Captcha
-from vk_api.bot_longpoll import VkBotEventType
-from vk_api.longpoll import VkEventType
+from plugins.test_vk import TestVK
+from vk.vk_handler import VKHandler
 
-from handler.handler import VkHandler, DiscordHandler
-from settings import Settings
-from utils import utils
-from utils.data import MyVkBotLongPoll, MyVkLongPoll, VKMessage, DSMessage, StoppableThread, VKEvent
+
+class StoppableThread(Thread):
+    """Thread class with a stop() method. The thread itself has to check
+    regularly for the stopped() condition."""
+
+    def __init__(self, target=None, name=None, args=()):
+        super().__init__(name=name)
+        self.running = True
+
+        self.target = target
+        self.args = args
+
+    def stop(self):
+        self.running = False
+        self.join()
+
+    def run(self):
+        self.target(*self.args)
 
 
 class Bot:
-    __client = Client()
-    __ds_handler = None
-
-    __vk_auth_type: str = None
-
-    __logger = None
-
     def __init__(self, settings):
-        try:
-            self.settings = settings
+        self.settings = settings
 
-            self.vk_t = StoppableThread(target=self.processor)
-            self.ds_t = StoppableThread(target=self.ds_processor)
+        self.logger = None
+        self.logger_file = None
+        self.init_logger()
+        
+        self.is_running = False
 
-            # Logger
-            self.logger = None
-            self.logger_file = None
-            self.init_logger()
+    def run(self):
+        for handler in self.settings.handlers:
+            handler = handler(self.settings, self.logger)
+            handler.init()
+            thread = StoppableThread(target=handler.listen, args=(self.settings,), name=handler.name)
+            handler.thread = thread
+            handler.run()
+            self.logger.info('{} successful started!'.format(handler.name))
+        self.is_running = True
 
-            if len(settings.auth) == 0:
-                self.logger.error('Not set any auth method!')
-                exit(-1)
+    def add_plugin(self, plugin):
+        if self.is_running:
+            self.logger.error('Bot already running! You can\'t add plugin after starting bot!')
+        else:
+            for p in self.settings.plugins:
+                if p.name == plugin.name:
+                    self.logger.error('Plugin with name "{}" already added!'.format(plugin.name))
+                    break
+            self.settings.plugins.append(plugin)
+            self.logger.debug('"{}" successful added!'.format(plugin.name))
 
-            # VK
-            self.session = None
-            self.api = None
-            self.vk_auth_type = ''
-            self.vk_auth()
-            Bot.__vk_auth_type = self.vk_auth_type
+    def add_prefix(self, prefix):
+        if self.is_running:
+            self.logger.error('Bot already running! You can\'t add prefix after starting bot!')
+        elif prefix in self.settings.prefixes:
+            self.logger.error('Prefix "{}" already added!'.format(prefix))
+        else:
+            self.settings.prefixes.append(prefix)
+            self.logger.debug('"{}" successful added!'.format(prefix))
 
-            # Discord
-            self.ds_token = ''
-            self.ds_auth()
-            self.ds_client = None
-            if self.ds_token:
-                self.ds_client = Bot.__client
-
-            if self.vk_auth_type:
-                self.vk_handler = VkHandler(self.ds_client, self.api, self)
-                self.vk_handler.initiate()
-
-            if self.ds_token:
-                self.ds_handler = DiscordHandler(self.ds_client, self.api, self)
-                self.ds_handler.initiate()
-                Bot.__ds_handler = self.ds_handler
-
-            Bot.__logger = self.logger
-
-            self.run()
-        except(KeyboardInterrupt, SystemExit):
-            self.stop()
-        except:
-            self.logger.error(traceback.format_exc())
+    def add_handler(self, handler):
+        if self.is_running:
+            self.logger.error('Bot already running! You can\'t add handler after starting bot!')
+        else:
+            self.settings.handlers.append(handler)
+            self.logger.debug('"{}" successful added!'.format(handler.name))
 
     def init_logger(self):
         formatter = logging.Formatter(fmt='%(filename)s [%(asctime)s] %(levelname)s: %(message)s',
@@ -88,130 +89,19 @@ class Bot:
         self.logger.addHandler(file_handler)
         self.logger.addHandler(stream_handler)
 
-    @staticmethod
-    def auth_handler():
-        return input('Enter two-auth code:\n'), True
 
-    def captcha_handler(self, c: Captcha):
-        with open('captcha.jpg', 'wb') as handle:
-            response = requests.get(c.url, stream=True)
-            for block in response.iter_content(1024):
-                if not block:
-                    break
-                handle.write(block)
-        return input('Enter code from captcha.jpg:\n')
+class Settings:
+    auth = (('vk', 'token', 168105642),)
 
-    def vk_auth(self):
-        for auth in self.settings.auth:
-            if auth[0] == 'vk_group':
-                if len(auth) == 1:
-                    self.logger.critical('Not set token!')
-                    exit(-1)
-                try:
-                    self.session = VkApi(api_version='5.89', token=auth[1],
-                                         app_id=self.settings.app_id, auth_handler=self.auth_handler,
-                                         captcha_handler=self.captcha_handler)
-                    self.api = self.session.get_api()
-                    group = self.api.groups.getById()[0]
-                    self.logger.info(f'Auth as {group["name"]} (https://vk.com/public{group["id"]})')
-                    self.vk_auth_type = 'vk_group'
-                except ApiError:
-                    self.logger.critical('Wrong token! Shutting down...')
-                    exit(-1)
+    debug = False
 
-            elif auth[0] == 'vk_user' and len(auth) == 2:
-                try:
-                    self.session = VkApi(api_version='5.89', token=auth[1],
-                                         app_id=self.settings.app_id, auth_handler=self.auth_handler,
-                                         captcha_handler=self.captcha_handler, scope=self.settings.scope)
-                    self.api = self.session.get_api()
-                    user = self.api.users.get()[0]
-                    self.logger.info(f'Auth as {user["first_name"]} {user["last_name"]} '
-                                     f'(https://vk.com/id{user["id"]})')
-                    self.vk_auth_type = 'vk_user'
-                except ApiError:
-                    self.logger.critical('Wrong token! Shutting down...')
-
-            elif auth[0] == 'vk_user' and len(auth) >= 3:
-                try:
-                    self.session = VkApi(api_version='5.89', login=auth[1], password=auth[2],
-                                         app_id=self.settings.app_id, auth_handler=self.auth_handler,
-                                         captcha_handler=self.captcha_handler, scope=self.settings.scope)
-                    self.session.auth()
-                    self.api = self.session.get_api()
-                    user = self.api.users.get()[0]
-                    self.logger.info(f'Auth as {user["first_name"]} {user["last_name"]} '
-                                     f'(https://vk.com/id{user["id"]})')
-                    self.vk_auth_type = 'vk_user'
-                except ApiError:
-                    self.logger.critical('Wrong login and/or password! Shutting down...')
-
-    def ds_auth(self):
-        for a in self.settings.auth:
-            if a[0] == 'ds_bot':
-                if len(a) <= 1:
-                    self.logger.critical('Token for Discord bot not set!')
-                    exit(-1)
-                self.ds_token = a[1]
-
-    @staticmethod
-    @__client.event
-    async def on_message(message):
-        Thread(target=Bot.__ds_handler.process(DSMessage(message, Bot.__client))).start()
-
-    @staticmethod
-    @__client.event
-    async def on_ready():
-        Bot.__logger.info(f'Logged in as {Bot.__client.user.name} ({Bot.__client.user.id})')
-
-    def run(self):
-        self.logger.info('Started to process messages')
-
-        try:
-            if self.vk_auth_type:
-                self.vk_t.start()
-            if self.ds_token:
-                self.ds_t.start()
-        except asyncio.CancelledError:
-            pass
-
-    def ds_processor(self):
-        Bot.__client.run(self.ds_token)
-
-    def processor(self):
-        if self.vk_auth_type == 'vk_group':
-            longpoll = MyVkBotLongPoll(self.session, utils.get_self_id(self.api))
-        else:
-            longpoll = MyVkLongPoll(self.session)
-        try:
-            for event in longpoll.listen():
-                if event.type == VkBotEventType.MESSAGE_NEW and 'action' in event.raw['object']:
-                    self.process_vk_event(VKEvent(self.session, event.raw))
-                elif event.type == VkBotEventType.MESSAGE_NEW:
-                    self.process_vk_msg(VKMessage(self.session, event.raw))
-                elif event.type == VkEventType.MESSAGE_NEW:
-                    self.process_vk_msg(VKMessage(self.session, utils.user_raw_to_data(event.raw)))
-        except:
-            self.logger.error(traceback.format_exc())
-
-    def process_vk_msg(self, msg):
-        Thread(target=self.vk_handler.process, args=[msg]).start()
-
-    def process_vk_event(self, event):
-        Thread(target=self.vk_handler.process_event, args=[event]).start()
-
-    def stop(self):
-        try:
-            if self.ds_t.is_alive():
-                self.ds_t.stop()
-            if self.vk_t.is_alive():
-                self.vk_t.stop()
-            self.logger.removeHandler(self.logger_file)
-            self.logger_file.close()
-            self.logger.info('Stopped to process messages')
-        except:
-            print(traceback.format_exc())
+    handlers = [VKHandler]
+    prefixes = ["бот ", 'бот, ', '/']
+    plugins = []
 
 
 if __name__ == '__main__':
     bot = Bot(Settings)
+    bot.add_plugin(TestVK(Settings.prefixes, 'xyu'))
+    bot.add_prefix('!')
+    bot.run()
