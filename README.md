@@ -1,5 +1,6 @@
 **Ignis Samurai V3.0**
 -
+[![pipeline status](https://gitlab.com/Nix13/Ignis-Samurai/badges/master/pipeline.svg)](https://gitlab.com/Nix13/Ignis-Samurai/commits/master)
 
 Требуется Python 3.6
 
