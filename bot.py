@@ -5,41 +5,24 @@ from plugins.test_vk import TestVK
 from vk.vk_handler import VKHandler
 
 
-class StoppableThread(Thread):
-    """Thread class with a stop() method. The thread itself has to check
-    regularly for the stopped() condition."""
-
-    def __init__(self, target=None, name=None, args=()):
-        super().__init__(name=name)
-        self.running = True
-
-        self.target = target
-        self.args = args
-
-    def stop(self):
-        self.running = False
-        self.join()
-
-    def run(self):
-        self.target(*self.args)
-
-
 class Bot:
     def __init__(self, settings):
         self.settings = settings
 
         self.logger = None
         self.logger_file = None
-        self.init_logger()
-        
+        self.__init_logger()
+
         self.is_running = False
 
     def run(self):
+        if self.is_running:
+            self.logger.error('Bot already running!')
+            return
         for handler in self.settings.handlers:
             handler = handler(self.settings, self.logger)
             handler.init()
-            thread = StoppableThread(target=handler.listen, args=(self.settings,), name=handler.name)
-            handler.thread = thread
+            handler.thread = Thread(target=handler.listen, args=(self.settings,), name=handler.name)
             handler.run()
             self.logger.info('{} successful started!'.format(handler.name))
         self.is_running = True
@@ -71,7 +54,7 @@ class Bot:
             self.settings.handlers.append(handler)
             self.logger.debug('"{}" successful added!'.format(handler.name))
 
-    def init_logger(self):
+    def __init_logger(self):
         formatter = logging.Formatter(fmt='%(filename)s [%(asctime)s] %(levelname)s: %(message)s',
                                       datefmt='%d.%m.%Y %H:%M:%S')
         level = logging.DEBUG if self.settings.debug else logging.INFO
@@ -91,17 +74,20 @@ class Bot:
 
 
 class Settings:
-    auth = (('vk', 'token', 168105642),)
+    # VK group auth
+    auth = (('vk', '', 000000),
+            ('telegram', ''))
 
     debug = False
 
-    handlers = [VKHandler]
-    prefixes = ["бот ", 'бот, ', '/']
+    handlers = []
+    prefixes = ['бот ', 'бот, ', '/']
     plugins = []
 
 
 if __name__ == '__main__':
     bot = Bot(Settings)
-    bot.add_plugin(TestVK(Settings.prefixes, 'xyu'))
+    bot.add_handler(VKHandler)
+    bot.add_plugin(TestVK(Settings.prefixes))
     bot.add_prefix('!')
     bot.run()

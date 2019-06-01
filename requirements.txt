@@ -1,0 +1,5 @@
+requests
+vk_api
+py-telegram-bot
+peewee
+psycopg2-binary

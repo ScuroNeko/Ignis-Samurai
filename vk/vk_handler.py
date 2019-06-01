@@ -5,6 +5,8 @@ from vk_api import VkApi
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
 
 from base.base_handler import BaseHandler
+from base.base_plugin import BasePlugin
+from vk.vk_plugin import VKBasePlugin
 
 
 class VKMessage:
@@ -13,16 +15,25 @@ class VKMessage:
         self.session = session
         self.api = session.get_api()
 
-        self.text = self.raw['text']
+        self.original_text = self.raw['text']
+        self.text = ' '.join(self.original_text.lower().split()[1:]) \
+            if self.original_text.lower().startswith('[club171962231|') \
+            else self.original_text.lower()
         self.user_id = self.raw['from_id']
         self.peer_id = self.raw['peer_id']
         self.date = self.raw['date']
 
-    def answer(self, text, attachments=None):
+        self.from_first_name = self.api.users.get(user_ids=self.user_id)[0]['first_name']
+
+        self.meta = {}
+
+    def answer(self, text, attachments=None, keyboard=None):
         data = {'peer_id': self.peer_id}
-        if text is not None:
+        if text:
             data.update({'message': text})
-        if attachments is not None:
+        if keyboard:
+            data.update({'keyboard': keyboard})
+        if attachments:
             if isinstance(attachments, (set, tuple, list, frozenset)):
                 attachments = ','.join(attachments)
             data.update({'attachment': attachments})
@@ -31,16 +42,26 @@ class VKMessage:
 
 
 class VKHandler(BaseHandler):
+    session = None
+    plugins = []
+
     def __init__(self, settings, logger):
         super().__init__()
 
         self.session = VkApi(token=settings.auth[0][1], api_version='5.89')
+        VKHandler.session = self.session
         self.plugins = []
-        for plugin in settings.plugins:
-            if isinstance(plugin, VKBasePlugin):
-                self.plugins.append(plugin)
+        for p in settings.plugins:
+            from telegram.telegram_handler import TelegramHandler
+            if isinstance(p, VKBasePlugin):
+                p.set_up(self.session)
+                self.plugins.append(p)
+            if isinstance(p, BasePlugin):
+                p.set_up(TelegramHandler.bot, self.session)
+                self.plugins.append(p)
+        VKHandler.plugins = self.plugins
+
         self.logger = logger
-        self.running = True
         self.thread = None
 
     def run(self):
@@ -48,19 +69,16 @@ class VKHandler(BaseHandler):
 
     def listen(self, settings):
         longpoll = LongPoll(self.session, settings.auth[0][2])
-        try:
-            while self.running:
+        while True:
+            try:
                 for event in longpoll.check():
                     if event.type == VkBotEventType.MESSAGE_NEW:
                         try:
                             self.check(VKMessage(self.session, event.raw))
                         except:
                             self.logger.error(traceback.format_exc())
-                if not self.running:
-                    break
-        except KeyboardInterrupt:
-            self.running = False
-            self.thread.stop()
+            except KeyboardInterrupt:
+                break
 
     def init(self):
         for p in self.plugins:
@@ -70,51 +88,7 @@ class VKHandler(BaseHandler):
         for p in self.plugins:
             if p.check_msg(msg):
                 p.process_msg(msg)
-
-
-class VKBasePlugin:
-    __slots__ = ('name', 'api', 'session')
-
-    def __init__(self):
-        if not hasattr(self, 'name'):
-            self.name = self.__class__.__name__
-        self.api = None
-        self.session = None
-
-    def set_up(self, api, session):
-        self.api = api
-        self.session = session
-
-    def init(self):
-        ...
-
-    def check_msg(self, msg) -> bool:
-        ...
-
-    def process_msg(self, msg) -> None:
-        ...
-
-
-class VKCommandPlugin(VKBasePlugin):
-    def __init__(self, prefixes, commands):
-        super().__init__()
-        self.prefixes = prefixes
-        self.commands = commands
-
-    def check_msg(self, msg):
-        text = ''
-        for p in self.prefixes:
-            if msg.text.startswith(p):
-                text = msg.text[len(p):]
-                if text.startswith(' '):
-                    text = msg.text[1:]
-
-        for c in self.commands:
-            if text.startswith(c):
-                return True
-            break
-
-        return False
+                break
 
 
 class LongPoll(VkBotLongPoll):
