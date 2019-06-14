@@ -23,13 +23,13 @@ class Bot:
         if self.running:
             logging.error('Bot already running')
         for h in self.settings.handlers:
-            handler = h(self.settings)
             try:
+                handler = h(self.settings)
                 handler.init()
+                Thread(target=handler.listen).start()
+                logging.info(f'Started {handler.name}')
             except:
                 logging.error(traceback.format_exc())
-            Thread(target=handler.listen).start()
-            logging.info(f'Started {handler.name}')
 
     def add_auth(self, name, *data):
         if self.running:

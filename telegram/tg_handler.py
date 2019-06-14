@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import traceback
 
 from py_telegram_bot.bot import Bot
 
@@ -43,7 +44,10 @@ class TelegramHandler(BaseHandler):
                 return
 
     def listen(self):
-        for update in self.bot.get_updates():
-            self.loop.run_until_complete(self.check(update))
+        try:
+            for update in self.bot.get_updates():
+                self.loop.run_until_complete(self.check(update))
+        except:
+            logging.error(traceback.format_exc())
 
 

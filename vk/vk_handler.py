@@ -83,13 +83,16 @@ class VKHandler(BaseHandler):
                 return 
 
     def listen(self):
-        lp = VkBotLongPoll(self.session, self.api.groups.getById()[0]['id'])
-        for event in lp.listen():
-            try:
-                if event.type == VkBotEventType.MESSAGE_NEW:
-                    self.loop.run_until_complete(self.check(VKMessage(event.object, self.session)))
-            except KeyboardInterrupt:
-                self.loop.close()
-                break
-            except:
-                logging.error(traceback.format_exc())
+        try:
+            lp = VkBotLongPoll(self.session, self.api.groups.getById()[0]['id'])
+            for event in lp.listen():
+                try:
+                    if event.type == VkBotEventType.MESSAGE_NEW:
+                        self.loop.run_until_complete(self.check(VKMessage(event.object, self.session)))
+                except KeyboardInterrupt:
+                    self.loop.close()
+                    break
+                except:
+                    logging.error(traceback.format_exc())
+        except:
+            logging.error(traceback.format_exc())
