@@ -10,5 +10,3 @@
 **[Changelog](CHANGELOG.md)**
 |
 **[Author VK](https://vk.com/nikitagorshok)**
-|
-**[Author Telegram](https://t.me/DarkShinigani)**
