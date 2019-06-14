@@ -2,6 +2,7 @@ import logging
 import traceback
 from threading import Thread
 
+from plugins.about import About
 from plugins.balance import BalancePlugin
 from plugins.echo import Echo
 from telegram.tg_handler import TelegramHandler
@@ -74,5 +75,7 @@ if __name__ == '__main__':
     bot.add_auth('telegram', 'token')
 
     bot.add_prefix('!')
+
+    bot.add_plugin(About(Settings.prefixes))
 
     bot.run()
