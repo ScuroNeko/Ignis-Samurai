@@ -1,5 +1,5 @@
-requests
+peewee
 vk_api
 py-telegram-bot
-peewee
-psycopg2-binary
+peewee-async
+aiopg

@@ -5,9 +5,8 @@ class BaseHandler:
         if not hasattr(self, 'name'):
             self.name = self.__class__.__name__
 
-    def listen(self, settings):
-        """
-        Тут необходимо получать запросы от API
-        :return: None
-        """
-        ...
+    def init(self):
+        pass
+
+    def listen(self):
+        pass

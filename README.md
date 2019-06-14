@@ -1,13 +1,14 @@
-**Ignis Samurai V3.0**
+**Ignis Samurai V4.0**
 -
-[![pipeline status](https://gitlab.com/Nix13/Ignis-Samurai/badges/master/pipeline.svg)](https://gitlab.com/Nix13/Ignis-Samurai/commits/master)
+Требуется Python 3.6-3.7
 
-Требуется Python 3.6
-
-Ниже возможно работает, выше точно не работает.
+Ниже возможно работает.
 
 
 ***LINKS***
 -
 **[Changelog](CHANGELOG.md)**
-**[Author VK](https://vk.com/nix13)**
+|
+**[Author VK](https://vk.com/nikitagorshok)**
+|
+**[Author Telegram](https://t.me/DarkShinigani)**
