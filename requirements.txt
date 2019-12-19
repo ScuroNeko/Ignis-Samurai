@@ -1,5 +1,4 @@
-peewee
 vk_api
-py-telegram-bot
-peewee-async
+peewee
+peewee_async
 aiopg
