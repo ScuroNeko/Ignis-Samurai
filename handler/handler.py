@@ -5,6 +5,7 @@ from vk_api import VkApi
 from vk_api.bot_longpoll import VkBotLongPoll
 from vk_api.bot_longpoll import VkBotEventType
 
+from handler.event import ChatEvent, Event
 from handler.message import Message
 from settings import Settings
 from utils.logger import Logger
@@ -61,9 +62,33 @@ class Handler:
                     Logger.log.error(traceback.format_exc())
                 break
 
+    async def check_event(self, event: (ChatEvent, Event), msg: (Message, None)):
+        event_type = event.type
+
+        for plugin in self.plugins:
+            if event_type in plugin.chat_events.keys():
+                try:
+                    await plugin.chat_events[event_type](event, msg)
+                except:
+                    Logger.log.error(traceback.format_exc())
+                break
+            elif event_type in plugin.events.keys():
+                try:
+                    await plugin.events[event_type](event)
+                except:
+                    Logger.log.error(traceback.format_exc())
+                break
+
     def run(self):
         lp = VkBotLongPoll(self.session, get_self_id(self.api))
         for event in lp.listen():
-            if event.type == VkBotEventType.MESSAGE_NEW:
+            if event.type == VkBotEventType.MESSAGE_NEW and 'action' not in event.obj:
                 msg = Message(self.session, self.api, event.obj)
                 asyncio.new_event_loop().run_until_complete(self.check(msg))
+            elif event.type == VkBotEventType.MESSAGE_NEW and 'action' in event.obj:
+                evnt = ChatEvent(self.session, self.api, event.obj['action'])
+                msg = Message(self.session, self.api, event.obj)
+                asyncio.new_event_loop().run_until_complete(self.check_event(evnt, msg))
+            else:
+                evnt = Event(self.session, self.api, event.raw)
+                asyncio.new_event_loop().run_until_complete(self.check_event(evnt, None))

@@ -1,4 +1,4 @@
-**Ignis Samurai V5.0**
+**Ignis Samurai V5.1**
 -
 Требуется Python 3.6-3.8
 
