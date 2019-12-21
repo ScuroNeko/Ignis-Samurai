@@ -1,14 +1,14 @@
 from handler.handler import Handler
 from settings import Settings
-from utils.database import Database
+from utils.database.database import Database
 from utils.logger import Logger
 
 
 class Bot:
     def __init__(self, settings):
-        self.settings = settings
         Logger()
-        Database('name', 'user', 'password', 'localhost')
+        Database(settings)
+        self.settings = settings
 
     def run(self):
         handler = Handler(self.settings)

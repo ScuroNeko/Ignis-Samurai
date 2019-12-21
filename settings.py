@@ -8,6 +8,14 @@ class BaseSettings:
         '!', '/'
     )
     debug = True
+    database = {
+        'driver': '',
+        'host': '',
+        'name': '',
+        'user': '',
+        'password': '',
+        'port': 0
+    }
 
 
 class Settings(BaseSettings):
@@ -16,3 +24,10 @@ class Settings(BaseSettings):
     )
     token = ''
     debug = False
+    database = {
+        'driver': '',
+        'host': 'localhost',
+        'name': 'bot',
+        'user': 'root',
+        'password': ''
+    }

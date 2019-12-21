@@ -1,3 +1,7 @@
+**V5.2**
+
+1. Изменения в работе базы данных. Модели регистрируются в `utils/database/models.py`, данные для базы в `settings.py`
+
 **V5.1**
 
 1. Добавлена поддержка эвентов с помощью декоратора `@plugin.on_event(type)`. [Доступные типы для группы](https://vk.com/dev/groups_events) и [типы для чатов](https://vk.com/dev/objects/message?f=%D0%94%D0%BB%D1%8F%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B8%20API%20%D1%81%205.80)(поле `action`)

@@ -1,7 +1,7 @@
 from handler.event import ChatEvent, Event
 from handler.message import Message
 from handler.plugins import Plugin
-from utils.database import Database
+from utils.database.models import Models
 from utils.logger import Logger
 
 echo = Plugin()
@@ -20,7 +20,9 @@ def second_init():
 @echo.on_command('ping', 'dick')
 @echo.on_payload('ping')
 async def ping(msg: Message):
-    return msg.answer('Pong!')
+    user, c = Models.user.get_or_create(user_id=msg.from_id)
+    return msg.answer(f'ID: {user.id}\n'
+                      f'Баланс: {user.balance}$')
 
 
 @echo.on_event('chat_title_update')
