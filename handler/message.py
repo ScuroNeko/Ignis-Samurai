@@ -24,6 +24,8 @@ class Message:
         self.reply_message = Message(self.session, self.api, self.raw['reply_message']) \
             if 'reply_message' in self.raw else None
 
+        self.meta: dict = {}
+
     def answer(self, text: str = '', attachments: (str, list, tuple, set, frozenset) = '', **kwargs):
         data = kwargs.copy()
         data.update({

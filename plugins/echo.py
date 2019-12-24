@@ -4,7 +4,14 @@ from handler.plugins import Plugin
 from utils.database.models import Models
 from utils.logger import Logger
 
-echo = Plugin()
+
+async def test_checker(msg: Message, plugin: Plugin):
+    if msg.text == 'ping':
+        await plugin.process_command('ping', msg)
+    return 
+
+
+echo = Plugin(custom_checker=test_checker)
 
 
 @echo.init(10)
@@ -20,7 +27,7 @@ def second_init():
 @echo.on_command('ping', 'dick')
 @echo.on_payload('ping')
 async def ping(msg: Message):
-    user, c = Models.user.get_or_create(user_id=msg.from_id)
+    user, _ = Models.user.get_or_create(user_id=msg.from_id)
     return msg.answer(f'ID: {user.id}\n'
                       f'Баланс: {user.balance}$')
 

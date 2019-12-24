@@ -120,3 +120,5 @@ fabric.properties
 .idea/misc.xml
 .idea/modules.xml
 .idea/statistic.xml
+.vscode/
+launch.json

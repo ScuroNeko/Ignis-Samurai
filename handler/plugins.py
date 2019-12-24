@@ -1,3 +1,7 @@
+from handler.message import Message
+from handler.event import ChatEvent, Event
+
+
 class InitMethod:
     def __init__(self, method, priority):
         self.priority = priority
@@ -8,7 +12,9 @@ class InitMethod:
 
 
 class Plugin:
-    def __init__(self):
+    def __init__(self, custom_checker=None):
+        self.custom_checker = custom_checker
+
         self.commands: dict = {}
         self.payloads: dict = {}
 
@@ -48,3 +54,15 @@ class Plugin:
             return f
 
         return wrapper
+
+    async def process_command(self, command: str, msg: Message):
+        await self.commands[command](msg)
+
+    async def process_payload(self, payload: str, msg: Message):
+        await self.payloads[payload](msg)
+
+    async def process_chat_event(self, event_type: str, event: ChatEvent, msg: Message):
+        await self.chat_events[event_type](event, msg)
+
+    async def process_event(self, event_type: str, event: Event):
+        await self.events[event_type](event)

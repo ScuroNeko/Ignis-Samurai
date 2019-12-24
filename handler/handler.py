@@ -40,12 +40,17 @@ class Handler:
         payload = msg.payload['cmd'] if 'cmd' in msg.payload else ''
 
         for p in self.plugins:
+            if p.custom_checker:
+                try:
+                    return await p.custom_checker(msg, p)
+                except Exception:
+                    Logger.log.info(traceback.format_exc())
+
             if payload in p.payloads.keys():
                 try:
-                    await p.payloads[payload](msg)
+                    return await p.payloads[payload](msg)
                 except:
                     Logger.log.error(traceback.format_exc())
-                break
 
         for prefix in self.settings.prefixes:
             if text.startswith(prefix):
@@ -57,10 +62,9 @@ class Handler:
         for p in self.plugins:
             if text in p.commands.keys():
                 try:
-                    await p.commands[text](msg)
+                    return await p.commands[text](msg)
                 except:
                     Logger.log.error(traceback.format_exc())
-                break
 
     async def check_event(self, event: (ChatEvent, Event), msg: (Message, None)):
         event_type = event.type
@@ -85,10 +89,12 @@ class Handler:
             if event.type == VkBotEventType.MESSAGE_NEW and 'action' not in event.obj:
                 msg = Message(self.session, self.api, event.obj)
                 asyncio.new_event_loop().run_until_complete(self.check(msg))
+
             elif event.type == VkBotEventType.MESSAGE_NEW and 'action' in event.obj:
                 evnt = ChatEvent(self.session, self.api, event.obj['action'])
                 msg = Message(self.session, self.api, event.obj)
                 asyncio.new_event_loop().run_until_complete(self.check_event(evnt, msg))
+                
             else:
                 evnt = Event(self.session, self.api, event.raw)
                 asyncio.new_event_loop().run_until_complete(self.check_event(evnt, None))
