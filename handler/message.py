@@ -15,7 +15,9 @@ class Message:
         self.peer_id: int = self.raw['peer_id']
         self.from_id: int = self.raw['from_id']
 
-        self.text: str = self.raw['text']
+        self.original_text: str = self.raw['text']
+        self.text: str = self.original_text.lower()
+        
         self.attachments: list = self.raw['attachments']
 
         self.payload: dict = json.loads(self.raw.get('payload', '{}'))

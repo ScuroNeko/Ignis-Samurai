@@ -32,22 +32,30 @@ class Handler:
         for p in self.settings.plugins:
             for init in p.init_methods:
                 Logger.log.debug(f'Init: {p.__class__.__name__}')
-                init.init()
+                init.call()
             self.plugins.append(p)
 
     async def check(self, msg: Message):
         text = msg.text
         payload = msg.payload['cmd'] if 'cmd' in msg.payload else ''
+        args = msg.payload['args'] if 'args' in msg.payload else []
 
         for p in self.plugins:
             if p.custom_checker:
                 try:
+                    for before_process in p.before_process_methods:
+                        before_process()
                     return await p.custom_checker(msg, p)
                 except Exception:
                     Logger.log.info(traceback.format_exc())
 
+            
             if payload in p.payloads.keys():
                 try:
+                    msg.meta.update({'args': args})
+
+                    for before_process in p.before_process_methods:
+                        before_process.call()
                     return await p.payloads[payload](msg)
                 except:
                     Logger.log.error(traceback.format_exc())
@@ -60,11 +68,18 @@ class Handler:
             return
 
         for p in self.plugins:
-            if text in p.commands.keys():
-                try:
-                    return await p.commands[text](msg)
-                except:
-                    Logger.log.error(traceback.format_exc())
+            for command in p.commands.keys():
+                if text.startswith(command):
+                    try:
+                        args = text[len(command)+1:].split()
+                        msg.meta.update({'args': args})
+
+                        for before_process in p.before_process_methods:
+                            before_process.call()
+                        return await p.commands[text[:len(command)]](msg)
+                    except:
+                        Logger.log.error(traceback.format_exc())
+
 
     async def check_event(self, event: (ChatEvent, Event), msg: (Message, None)):
         event_type = event.type
@@ -72,16 +87,19 @@ class Handler:
         for plugin in self.plugins:
             if event_type in plugin.chat_events.keys():
                 try:
-                    await plugin.chat_events[event_type](event, msg)
+                    for before_process in plugin.before_process_methods:
+                        before_process.call()
+                    return await plugin.chat_events[event_type](event, msg)
                 except:
                     Logger.log.error(traceback.format_exc())
-                break
+            
             elif event_type in plugin.events.keys():
                 try:
-                    await plugin.events[event_type](event)
+                    for before_process in plugin.before_process_methods:
+                        before_process.call()
+                    return await plugin.events[event_type](event)
                 except:
                     Logger.log.error(traceback.format_exc())
-                break
 
     def run(self):
         lp = VkBotLongPoll(self.session, get_self_id(self.api))

@@ -2,12 +2,12 @@ from handler.message import Message
 from handler.event import ChatEvent, Event
 
 
-class InitMethod:
+class MethodWithPriority:
     def __init__(self, method, priority):
         self.priority = priority
         self.method = method
 
-    def init(self):
+    def call(self):
         self.method()
 
 
@@ -22,27 +22,33 @@ class Plugin:
         self.chat_events: dict = {}
 
         self.init_methods: list = []
+        self.before_process_methods: list = []
 
     def init(self, priority: int = 0):
         def wrapper(f):
-            self.init_methods.append(InitMethod(f, priority))
+            self.init_methods.append(MethodWithPriority(f, priority))
             self.init_methods.sort(key=lambda method: method.priority, reverse=True)
             return f
-
         return wrapper
+
+    def before_process(self, priority: int = 0):
+        def wrapper(f):
+            self.before_process_methods.append(MethodWithPriority(f, priority))
+            self.before_process_methods.sort(key=lambda method: method.priority, reverse=True)
+            return f
+        return wrapper
+
 
     def on_command(self, *commands):
         def wrapper(f):
             self.commands.update(dict(map(lambda cmd: (cmd, f), commands)))
             return f
-
         return wrapper
 
     def on_payload(self, *payloads):
         def wrapper(f):
             self.payloads.update(dict(map(lambda payload: (payload, f), payloads)))
             return f
-
         return wrapper
 
     def on_event(self, *events):
@@ -52,7 +58,6 @@ class Plugin:
             self.events.update(dict(map(lambda event: (event, f),
                                         filter(lambda event: not event.startswith('chat'), events))))
             return f
-
         return wrapper
 
     async def process_command(self, command: str, msg: Message):
