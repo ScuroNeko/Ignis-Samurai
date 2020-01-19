@@ -1,5 +1,5 @@
 from handler.event import ChatEvent, Event
-from handler.message import Message
+from handler.message import Message, MessageArgs
 from handler.plugins import Plugin
 from utils.database.models import Models
 from utils.logger import Logger
@@ -11,7 +11,8 @@ async def test_checker(msg: Message, plugin: Plugin):
     return 
 
 
-echo = Plugin(custom_checker=test_checker)
+# echo = Plugin(custom_checker=test_checker)
+echo = Plugin()
 
 
 @echo.init(10)
@@ -24,9 +25,22 @@ def second_init():
     Logger.log.info('2nd init')
 
 
-@echo.on_command('ping', 'dick')
-@echo.on_payload('ping')
-async def ping(msg: Message):
+@echo.on_shutdown()
+def on_shutdown():
+    Logger.log.info('Shutting down...')
+
+
+@echo.on_command('ping', args=r'time:int optional?:\d')
+async def ping(msg: Message, args: MessageArgs):
+    i = []
+    for a in args.items():
+        i.append(f'{a[0]}: {a[1]}')
+    return msg.answer('Полученные аргументы:\n'+'\n'.join(i)+f'\nАргументы, полученные вручную:\ntime: {args.time}\noptional: {args.optional}')
+
+
+@echo.on_command('dick')
+@echo.on_payload('dick')
+async def dick(msg: Message):
     user, _ = Models.user.get_or_create(user_id=msg.from_id)
     return msg.answer(f'ID: {user.id}\n'
                       f'Баланс: {user.balance}$')

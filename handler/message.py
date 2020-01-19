@@ -3,6 +3,18 @@ import json
 from utils.vk_utils import generate_random_id
 
 
+class MessageArgs(dict):
+    def __init__(self, args: dict):
+        self.__args: dict = args
+        super().__init__(args)
+
+    def __getattr__(self, item):
+        try:
+            return self.__args[item]
+        except KeyError:
+            return None
+
+
 class Message:
     def __init__(self, session, api, raw: dict):
         self.session = session

@@ -13,7 +13,12 @@ class Bot:
     def run(self):
         handler = Handler(self.settings)
         handler.init()
-        handler.run()
+        try:
+            handler.run()
+        except KeyboardInterrupt:
+            handler.shutdown()
+            if Database.db and not Database.db.is_closed():
+                Database.db.close()
 
 
 if __name__ == '__main__':

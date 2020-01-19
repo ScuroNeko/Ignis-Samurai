@@ -35,6 +35,12 @@ class Handler:
                 init.call()
             self.plugins.append(p)
 
+    def shutdown(self):
+        for p in self.plugins:
+            for method in p.shutdown_methods:
+                method.call()
+        Logger.log.info('Bot has been shutdown!')
+
     async def check(self, msg: Message):
         text = msg.text
         payload = msg.payload['cmd'] if 'cmd' in msg.payload else ''
@@ -49,7 +55,6 @@ class Handler:
                 except Exception:
                     Logger.log.info(traceback.format_exc())
 
-            
             if payload in p.payloads.keys():
                 try:
                     msg.meta.update({'args': args})
@@ -68,18 +73,23 @@ class Handler:
             return
 
         for p in self.plugins:
-            for command in p.commands.keys():
+            for command in p.commands:
                 if text.startswith(command):
                     try:
                         args = text[len(command)+1:].split()
-                        msg.meta.update({'args': args})
+                        args_valid, args = await p.validate_command_args(command, args)
+                        if not args_valid:
+                            return msg.answer('Неверное количество или тип аргументов!')
 
                         for before_process in p.before_process_methods:
                             before_process.call()
-                        return await p.commands[text[:len(command)]](msg)
+
+                        if len(args):
+                            return await p.process_command_with_args(command, msg, args)
+                        return await p.process_command(command, msg)
+
                     except:
                         Logger.log.error(traceback.format_exc())
-
 
     async def check_event(self, event: (ChatEvent, Event), msg: (Message, None)):
         event_type = event.type

@@ -18,6 +18,6 @@ class Models:
             balance = DecimalField(default=10000)
 
             class Meta:
-                db_table = 'users'
+                table_name = 'users'
 
         Models.user = User
