@@ -126,7 +126,7 @@ class Handler:
                     Logger.log.error(traceback.format_exc())
 
     def run(self):
-        lp = VkBotLongPoll(self.session, get_self_id(self.api))
+        lp = LongPoll(self.session, get_self_id(self.api))
         for event in lp.listen():
             if event.type == VkBotEventType.MESSAGE_NEW and 'action' not in event.obj:
                 msg = Message(self.session, self.api, event.obj)

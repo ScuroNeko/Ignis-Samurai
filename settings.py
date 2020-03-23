@@ -3,10 +3,10 @@ from plugins.echo import echo
 
 class BaseSettings:
     token = ''
-    plugins = ()
-    prefixes = (
+    plugins = []
+    prefixes = [
         '!', '/'
-    )
+    ]
     debug = True
     database = {
         'driver': '',
@@ -19,9 +19,9 @@ class BaseSettings:
 
 
 class Settings(BaseSettings):
-    plugins = (
+    plugins = [
         echo,
-    )
+    ]
     token = ''
     debug = False
     database = {

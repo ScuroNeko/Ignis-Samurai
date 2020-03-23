@@ -1,5 +1,4 @@
 from peewee import OperationalError
-
 from handler.handler import Handler
 from settings import Settings
 from utils.database.database import Database
@@ -7,6 +6,8 @@ from utils.logger import Logger
 
 
 class Bot:
+    __slots__ = ('settings',)
+
     def __init__(self, settings):
         Logger()
         Database(settings)
