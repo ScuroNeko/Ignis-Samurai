@@ -17,7 +17,8 @@ class MethodWithPriority:
 
 class Plugin:
     __slots__ = ('custom_checker', 'custom_processor',
-                 'commands', 'commands_args', 'payloads',
+                 'commands', 'commands_args',
+                 'payloads', 'payloads_args',
                  'events', 'chat_events', 'init_methods',
                  'before_process_methods', 'shutdown_methods')
 
@@ -29,6 +30,7 @@ class Plugin:
         self.commands_args: dict = {}
 
         self.payloads: dict = {}
+        self.payloads_args: dict = {}
 
         self.events: dict = {}
         self.chat_events: dict = {}
@@ -62,8 +64,9 @@ class Plugin:
 
         return wrapper
 
-    def on_payload(self, *payloads):
+    def on_payload(self, *payloads, args=''):
         def wrapper(f):
+            self.payloads_args.update(map(lambda cmd: (cmd, args), payloads))
             self.payloads.update(dict(map(lambda payload: (payload, f), payloads)))
             return f
 
