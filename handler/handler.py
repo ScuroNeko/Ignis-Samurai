@@ -57,7 +57,7 @@ class Handler:
 
     async def check(self, msg: Message):
         text = msg.text
-        payload = msg.payload['cmd'] if 'cmd' in msg.payload else ''
+        payload = msg.payload['command'] if 'command' in msg.payload else ''
         args = msg.payload['args'] if 'args' in msg.payload else []
 
         for p in self.plugins:
@@ -98,7 +98,7 @@ class Handler:
                         for before_process in p.before_process_methods:
                             before_process.call()
 
-                        if len(args):
+                        if args_valid and args is not None:
                             return await p.process_command_with_args(command, msg, args)
                         return await p.process_command(command, msg)
 
@@ -127,6 +127,7 @@ class Handler:
 
     def run(self):
         lp = LongPoll(self.session, get_self_id(self.api))
+
         for event in lp.listen():
             if event.type == VkBotEventType.MESSAGE_NEW and 'action' not in event.obj:
                 msg = Message(self.session, self.api, event.obj)

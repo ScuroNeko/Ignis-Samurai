@@ -26,7 +26,3 @@ class Bot:
             if Database.db and not Database.db.is_closed():
                 Database.db.close()
 
-
-if __name__ == '__main__':
-    bot = Bot(Settings)
-    bot.run()

@@ -1,3 +1,8 @@
+**V5.4**
+
+1. Фикс [#1](https://github.com/Nix1304/Ignis-Samurai/issues/1)
+2. Переименование поля в payload, где приходит команда. `cmd` -> `command`
+
 **V5.3.1**
 
 1. Маленький фикс

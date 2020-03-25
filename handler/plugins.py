@@ -96,7 +96,7 @@ class Plugin:
     async def validate_command_args(self, command: str, cmd_args: tuple) -> (bool, MessageArgs):
         commands_args = self.commands_args
         if command not in commands_args:
-            return True, None
+            return False, MessageArgs({})
 
         args = commands_args[command].split()
 

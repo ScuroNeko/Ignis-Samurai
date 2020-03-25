@@ -1,0 +1,95 @@
+[INFO] [22:16:39 25.03.2020] [logger.py:24]: Logger initialized
+[ERROR] [22:16:39 25.03.2020] [handler.py:39]: No access token!
+[INFO] [22:16:56 25.03.2020] [logger.py:24]: Logger initialized
+[INFO] [22:16:56 25.03.2020] [handler.py:44]: Login as Kurumi Bot Project (https://vk.com/public168105642)
+[INFO] [22:16:56 25.03.2020] [echo.py:20]: 1st init
+[INFO] [22:16:56 25.03.2020] [echo.py:25]: 2nd init
+[INFO] [22:18:58 25.03.2020] [echo.py:30]: Shutting down...
+[INFO] [22:18:58 25.03.2020] [handler.py:56]: Bot has been shutdown!
+[INFO] [22:19:00 25.03.2020] [logger.py:24]: Logger initialized
+[INFO] [22:19:00 25.03.2020] [handler.py:44]: Login as Kurumi Bot Project (https://vk.com/public168105642)
+[INFO] [22:19:00 25.03.2020] [echo.py:20]: 1st init
+[INFO] [22:19:00 25.03.2020] [echo.py:25]: 2nd init
+[INFO] [22:19:08 25.03.2020] [echo.py:30]: Shutting down...
+[INFO] [22:19:08 25.03.2020] [handler.py:56]: Bot has been shutdown!
+[INFO] [22:19:10 25.03.2020] [logger.py:24]: Logger initialized
+[INFO] [22:19:10 25.03.2020] [handler.py:44]: Login as Kurumi Bot Project (https://vk.com/public168105642)
+[INFO] [22:19:10 25.03.2020] [echo.py:20]: 1st init
+[INFO] [22:19:10 25.03.2020] [echo.py:25]: 2nd init
+[ERROR] [22:19:54 25.03.2020] [handler.py:106]: Traceback (most recent call last):
+  File "/Volumes/files/projects/python/bots/IgnisSamurai/handler/handler.py", line 103, in check
+    return await p.process_command(command, msg)
+  File "/Volumes/files/projects/python/bots/IgnisSamurai/handler/plugins.py", line 94, in process_command
+    await self.commands[command](msg)
+TypeError: test() missing 1 required positional argument: 'args'
+
+[INFO] [22:20:23 25.03.2020] [echo.py:30]: Shutting down...
+[INFO] [22:20:23 25.03.2020] [handler.py:56]: Bot has been shutdown!
+[INFO] [22:20:24 25.03.2020] [logger.py:24]: Logger initialized
+[INFO] [22:20:24 25.03.2020] [handler.py:44]: Login as Kurumi Bot Project (https://vk.com/public168105642)
+[INFO] [22:20:24 25.03.2020] [echo.py:20]: 1st init
+[INFO] [22:20:24 25.03.2020] [echo.py:25]: 2nd init
+[ERROR] [22:20:25 25.03.2020] [handler.py:106]: Traceback (most recent call last):
+  File "/Volumes/files/projects/python/bots/IgnisSamurai/handler/handler.py", line 103, in check
+    return await p.process_command(command, msg)
+  File "/Volumes/files/projects/python/bots/IgnisSamurai/handler/plugins.py", line 94, in process_command
+    await self.commands[command](msg)
+TypeError: test() missing 1 required positional argument: 'args'
+
+[INFO] [22:20:43 25.03.2020] [echo.py:30]: Shutting down...
+[INFO] [22:20:43 25.03.2020] [handler.py:56]: Bot has been shutdown!
+[INFO] [22:20:43 25.03.2020] [logger.py:24]: Logger initialized
+[INFO] [22:20:43 25.03.2020] [handler.py:44]: Login as Kurumi Bot Project (https://vk.com/public168105642)
+[INFO] [22:20:43 25.03.2020] [echo.py:20]: 1st init
+[INFO] [22:20:43 25.03.2020] [echo.py:25]: 2nd init
+[ERROR] [22:20:48 25.03.2020] [handler.py:106]: Traceback (most recent call last):
+  File "/Volumes/files/projects/python/bots/IgnisSamurai/handler/handler.py", line 103, in check
+    return await p.process_command(command, msg)
+  File "/Volumes/files/projects/python/bots/IgnisSamurai/handler/plugins.py", line 94, in process_command
+    await self.commands[command](msg)
+TypeError: test() missing 1 required positional argument: 'args'
+
+[INFO] [22:21:10 25.03.2020] [echo.py:30]: Shutting down...
+[INFO] [22:21:10 25.03.2020] [handler.py:56]: Bot has been shutdown!
+[INFO] [22:21:10 25.03.2020] [logger.py:24]: Logger initialized
+[INFO] [22:21:10 25.03.2020] [handler.py:44]: Login as Kurumi Bot Project (https://vk.com/public168105642)
+[INFO] [22:21:10 25.03.2020] [echo.py:20]: 1st init
+[INFO] [22:21:10 25.03.2020] [echo.py:25]: 2nd init
+[INFO] [22:21:17 25.03.2020] [echo.py:30]: Shutting down...
+[INFO] [22:21:17 25.03.2020] [handler.py:56]: Bot has been shutdown!
+[INFO] [22:21:17 25.03.2020] [logger.py:24]: Logger initialized
+[INFO] [22:21:17 25.03.2020] [handler.py:44]: Login as Kurumi Bot Project (https://vk.com/public168105642)
+[INFO] [22:21:17 25.03.2020] [echo.py:20]: 1st init
+[INFO] [22:21:17 25.03.2020] [echo.py:25]: 2nd init
+[ERROR] [22:21:20 25.03.2020] [handler.py:106]: Traceback (most recent call last):
+  File "/Volumes/files/projects/python/bots/IgnisSamurai/handler/handler.py", line 103, in check
+    return await p.process_command(command, msg)
+  File "/Volumes/files/projects/python/bots/IgnisSamurai/handler/plugins.py", line 94, in process_command
+    await self.commands[command](msg)
+TypeError: test() missing 1 required positional argument: 'args'
+
+[INFO] [22:21:48 25.03.2020] [echo.py:30]: Shutting down...
+[INFO] [22:21:48 25.03.2020] [handler.py:56]: Bot has been shutdown!
+[INFO] [22:21:48 25.03.2020] [logger.py:24]: Logger initialized
+[INFO] [22:21:48 25.03.2020] [handler.py:44]: Login as Kurumi Bot Project (https://vk.com/public168105642)
+[INFO] [22:21:48 25.03.2020] [echo.py:20]: 1st init
+[INFO] [22:21:48 25.03.2020] [echo.py:25]: 2nd init
+[ERROR] [22:21:52 25.03.2020] [handler.py:106]: Traceback (most recent call last):
+  File "/Volumes/files/projects/python/bots/IgnisSamurai/handler/handler.py", line 103, in check
+    return await p.process_command(command, msg)
+  File "/Volumes/files/projects/python/bots/IgnisSamurai/handler/plugins.py", line 94, in process_command
+    await self.commands[command](msg)
+TypeError: test() missing 1 required positional argument: 'args'
+
+[INFO] [22:23:04 25.03.2020] [echo.py:30]: Shutting down...
+[INFO] [22:23:04 25.03.2020] [handler.py:56]: Bot has been shutdown!
+[INFO] [22:23:05 25.03.2020] [logger.py:24]: Logger initialized
+[INFO] [22:23:05 25.03.2020] [handler.py:44]: Login as Kurumi Bot Project (https://vk.com/public168105642)
+[INFO] [22:23:05 25.03.2020] [echo.py:20]: 1st init
+[INFO] [22:23:05 25.03.2020] [echo.py:25]: 2nd init
+[INFO] [22:26:08 25.03.2020] [echo.py:30]: Shutting down...
+[INFO] [22:26:08 25.03.2020] [handler.py:56]: Bot has been shutdown!
+[INFO] [22:26:09 25.03.2020] [logger.py:24]: Logger initialized
+[INFO] [22:26:09 25.03.2020] [handler.py:44]: Login as Kurumi Bot Project (https://vk.com/public168105642)
+[INFO] [22:26:09 25.03.2020] [echo.py:20]: 1st init
+[INFO] [22:26:09 25.03.2020] [echo.py:25]: 2nd init

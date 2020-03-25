@@ -8,7 +8,7 @@ from utils.logger import Logger
 async def test_checker(msg: Message, plugin: Plugin):
     if msg.text == 'ping':
         await plugin.process_command('ping', msg)
-    return 
+    return
 
 
 # echo = Plugin(custom_checker=test_checker)
@@ -30,12 +30,19 @@ def on_shutdown():
     Logger.log.info('Shutting down...')
 
 
+@echo.on_command('test', args=r'test?:int')
+async def test(msg: Message, args: MessageArgs):
+    print(msg.text, args.test)
+
+
 @echo.on_command('ping', args=r'time:int optional?:\d')
 async def ping(msg: Message, args: MessageArgs):
     i = []
     for a in args.items():
         i.append(f'{a[0]}: {a[1]}')
-    return msg.answer('Полученные аргументы:\n'+'\n'.join(i)+f'\nАргументы, полученные вручную:\ntime: {args.time}\noptional: {args.optional}')
+    return msg.answer('Полученные аргументы:\n' + '\n'.join(i) + \
+                      f'\nАргументы, полученные вручную:\n'
+                      f'time: {args.time}\noptional: {args.optional}')
 
 
 @echo.on_command('dick')
