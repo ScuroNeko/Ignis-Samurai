@@ -31,9 +31,9 @@ class Handler:
         self.session = VK(self.settings.token)
         self.api = self.session.get_api()
 
-        if not self.settings.debug:
+        if not self.settings.debug and self.settings.sentry_dsn:
             sentry_init(
-                "https://86bc4c82ccbf43659e69e9ecdac93adf@o319896.ingest.sentry.io/5518203",
+                self.settings.sentry_dsn,
                 traces_sample_rate=1.0
             )
             Logger.log.info('Sentry initialized!')

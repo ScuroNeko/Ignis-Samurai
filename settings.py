@@ -18,6 +18,7 @@ class BaseSettings:
 class Settings(BaseSettings):
     token = ''
     debug = True
+    sentry_dsn = ''
     database = {
         'driver': '',
         'host': 'localhost',
