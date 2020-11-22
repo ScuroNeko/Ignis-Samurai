@@ -1,0 +1,5 @@
+aiohttp
+peewee
+psycopg2-binary
+sentry_sdk
+asyncio
