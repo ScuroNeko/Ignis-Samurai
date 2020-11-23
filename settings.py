@@ -16,7 +16,7 @@ class BaseSettings:
 
 
 class Settings(BaseSettings):
-    token = ''
+    token = '4c64cfe826e81c78f0e7b735e40ba4b942d4e7dc720e6f558e00484f5c29d24a3aa342921efdd27dcf3d7'
     debug = True
     sentry_dsn = ''
     database = {
