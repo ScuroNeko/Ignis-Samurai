@@ -42,7 +42,6 @@ class VKLongPoll:
                     await self.init_lp()
             else:
                 self.ts = body['ts']
-
             for event in body['updates']:
                 yield VkBotEvent(event)
 

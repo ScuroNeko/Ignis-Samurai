@@ -1,5 +1,6 @@
 class BaseSettings:
     token = ''
+    sentry_dsn = ''
     plugins = []
     prefixes = [
         '!', '/'
@@ -17,6 +18,7 @@ class BaseSettings:
 
 class Settings(BaseSettings):
     token = ''
+    sentry_dsn = ''
     debug = False
     database = {
         'driver': '',

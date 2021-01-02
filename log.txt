@@ -222,5 +222,8 @@ TypeError: __init__() missing 1 required positional argument: 'args'
 [Ignis Samurai] [INFO] [20:06:31 22.11.2020] [echo.py:25]: 2nd init
 [Ignis Samurai] [INFO] [20:06:31 22.11.2020] [handler.py:213]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
 [Ignis Samurai] [DEBUG] [20:06:33 22.11.2020] [handler.py:167]: No database
+<<<<<<< HEAD
 [Ignis Samurai] [INFO] [12:30:15 23.11.2020] [logger.py:24]: Logger initialized
 [Ignis Samurai] [ERROR] [12:30:15 23.11.2020] [handler.py:29]: No access token!
+=======
+>>>>>>> cd01133685c21a397193cb3c1b038c237d4e3143
