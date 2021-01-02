@@ -33,6 +33,7 @@ def on_shutdown():
 @echo.on_command('test', args=r'test?:int')
 async def test(msg: Message, args: MessageArgs):
     print(msg.text, args.test)
+    await msg.answer(msg.text)
 
 
 @echo.on_command('ping', args=r'time:int optional?:\d')

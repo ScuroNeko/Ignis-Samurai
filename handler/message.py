@@ -1,5 +1,7 @@
 import json
 
+from utils.logger import Logger
+from utils.vk.vk import VK
 from utils.vk_utils import generate_random_id
 
 
@@ -21,11 +23,14 @@ class Message:
                  'payload', 'forwarded_messages', 'reply_message', 'meta')
 
     def __init__(self, session, api, raw: dict):
-        self.session = session
+        self.session: VK = session
         self.api = api
-        self.raw: dict = raw
+        try:
+            self.raw: dict = raw['message']
+        except KeyError:
+            self.raw: dict = raw
 
-        self.id: int = self.raw['id']
+        self.id: int = self.raw.get('id', 0)
         self.date: int = self.raw['date']
 
         self.peer_id: int = self.raw['peer_id']
@@ -36,7 +41,7 @@ class Message:
 
         self.original_text: str = self.raw['text']
         self.text: str = self.original_text.lower()
-        
+
         self.attachments: list = self.raw['attachments']
 
         self.payload: dict = json.loads(self.raw.get('payload', '{}'))
@@ -47,7 +52,7 @@ class Message:
 
         self.meta: dict = {}
 
-    def answer(self, text: str = '', attachments: (str, list, tuple, set, frozenset) = '', **kwargs):
+    async def answer(self, text: str = '', attachments: (str, list, tuple, set, frozenset) = '', **kwargs):
         data = kwargs.copy()
         data.update({
             'peer_id': self.peer_id,
@@ -61,4 +66,10 @@ class Message:
                 data.update({'attachment': attachments})
             else:
                 data.update({'attachment': ','.join(attachments)})
-        self.api.messages.send(**data)
+        await self.api.messages.send(**data)
+
+    def __str__(self):
+        return str(self.raw)
+
+    def __repr__(self):
+        return str(self.raw)

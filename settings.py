@@ -1,6 +1,3 @@
-from plugins.echo import echo
-
-
 class BaseSettings:
     token = ''
     plugins = []
@@ -19,9 +16,6 @@ class BaseSettings:
 
 
 class Settings(BaseSettings):
-    plugins = [
-        echo,
-    ]
     token = ''
     debug = False
     database = {

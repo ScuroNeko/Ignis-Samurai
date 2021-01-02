@@ -1,0 +1,226 @@
+[Ignis Samurai] [INFO] [23:07:22 25.03.2020] [echo.py:30]: Shutting down...
+[Ignis Samurai] [INFO] [23:07:22 25.03.2020] [handler.py:56]: Bot has been shutdown!
+[Ignis Samurai] [INFO] [19:53:31 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [ERROR] [19:53:31 22.11.2020] [handler.py:29]: No access token!
+[Ignis Samurai] [INFO] [19:53:57 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [INFO] [19:53:57 22.11.2020] [handler.py:38]: Sentry initialized!
+[Ignis Samurai] [INFO] [19:53:57 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [INFO] [19:53:57 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [19:53:57 22.11.2020] [handler.py:208]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [INFO] [19:54:19 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [INFO] [19:54:19 22.11.2020] [handler.py:38]: Sentry initialized!
+[Ignis Samurai] [INFO] [19:54:19 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [INFO] [19:54:19 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [19:54:19 22.11.2020] [handler.py:208]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [INFO] [19:54:47 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [INFO] [19:54:47 22.11.2020] [handler.py:38]: Sentry initialized!
+[Ignis Samurai] [INFO] [19:54:47 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [INFO] [19:54:47 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [19:54:47 22.11.2020] [handler.py:208]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [INFO] [19:55:02 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [INFO] [19:55:02 22.11.2020] [handler.py:38]: Sentry initialized!
+[Ignis Samurai] [INFO] [19:55:02 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [INFO] [19:55:02 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [19:55:02 22.11.2020] [handler.py:208]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [INFO] [19:55:07 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [INFO] [19:55:07 22.11.2020] [handler.py:38]: Sentry initialized!
+[Ignis Samurai] [INFO] [19:55:07 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [INFO] [19:55:07 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [19:55:07 22.11.2020] [handler.py:208]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [INFO] [19:55:25 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [INFO] [19:55:25 22.11.2020] [handler.py:38]: Sentry initialized!
+[Ignis Samurai] [INFO] [19:55:25 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [INFO] [19:55:25 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [19:55:26 22.11.2020] [handler.py:208]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [INFO] [19:55:45 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [DEBUG] [19:55:45 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [19:55:45 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [DEBUG] [19:55:45 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [19:55:45 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [19:55:45 22.11.2020] [handler.py:208]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [ERROR] [19:55:50 22.11.2020] [handler.py:230]: Traceback (most recent call last):
+  File "/Users/nikitabeznisko/Library/Mobile Documents/com~apple~CloudDocs/projects/python/bots/IgnisSamurai/handler/handler.py", line 218, in _run
+    await self.check(msg)
+  File "/Users/nikitabeznisko/Library/Mobile Documents/com~apple~CloudDocs/projects/python/bots/IgnisSamurai/handler/handler.py", line 160, in check
+    if db.connect(True):
+AttributeError: 'NoneType' object has no attribute 'connect'
+
+[Ignis Samurai] [INFO] [19:56:25 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [DEBUG] [19:56:25 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [19:56:25 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [DEBUG] [19:56:25 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [19:56:25 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [19:56:25 22.11.2020] [handler.py:211]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [DEBUG] [19:56:27 22.11.2020] [handler.py:166]: No database
+[Ignis Samurai] [ERROR] [19:56:27 22.11.2020] [handler.py:153]: Traceback (most recent call last):
+  File "/Users/nikitabeznisko/Library/Mobile Documents/com~apple~CloudDocs/projects/python/bots/IgnisSamurai/handler/handler.py", line 149, in check_command
+    await p.process_command(command, msg)
+  File "/Users/nikitabeznisko/Library/Mobile Documents/com~apple~CloudDocs/projects/python/bots/IgnisSamurai/handler/plugins.py", line 147, in process_command
+    await self.commands[command](msg)
+TypeError: test() missing 1 required positional argument: 'args'
+
+[Ignis Samurai] [ERROR] [19:56:27 22.11.2020] [handler.py:233]: Traceback (most recent call last):
+  File "/Users/nikitabeznisko/Library/Mobile Documents/com~apple~CloudDocs/projects/python/bots/IgnisSamurai/handler/handler.py", line 221, in _run
+    await self.check(msg)
+  File "/Users/nikitabeznisko/Library/Mobile Documents/com~apple~CloudDocs/projects/python/bots/IgnisSamurai/handler/handler.py", line 174, in check
+    db.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+[Ignis Samurai] [INFO] [19:56:41 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [DEBUG] [19:56:41 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [19:56:41 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [DEBUG] [19:56:41 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [19:56:41 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [19:56:41 22.11.2020] [handler.py:212]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [DEBUG] [19:56:42 22.11.2020] [handler.py:166]: No database
+[Ignis Samurai] [ERROR] [19:56:42 22.11.2020] [handler.py:153]: Traceback (most recent call last):
+  File "/Users/nikitabeznisko/Library/Mobile Documents/com~apple~CloudDocs/projects/python/bots/IgnisSamurai/handler/handler.py", line 149, in check_command
+    await p.process_command(command, msg)
+  File "/Users/nikitabeznisko/Library/Mobile Documents/com~apple~CloudDocs/projects/python/bots/IgnisSamurai/handler/plugins.py", line 147, in process_command
+    await self.commands[command](msg)
+TypeError: test() missing 1 required positional argument: 'args'
+
+[Ignis Samurai] [INFO] [19:57:10 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [DEBUG] [19:57:10 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [19:57:10 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [DEBUG] [19:57:10 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [19:57:10 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [19:57:10 22.11.2020] [handler.py:212]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [DEBUG] [19:57:15 22.11.2020] [handler.py:166]: No database
+[Ignis Samurai] [ERROR] [19:57:15 22.11.2020] [handler.py:153]: Traceback (most recent call last):
+  File "/Users/nikitabeznisko/Library/Mobile Documents/com~apple~CloudDocs/projects/python/bots/IgnisSamurai/handler/handler.py", line 149, in check_command
+    await p.process_command(command, msg)
+  File "/Users/nikitabeznisko/Library/Mobile Documents/com~apple~CloudDocs/projects/python/bots/IgnisSamurai/handler/plugins.py", line 147, in process_command
+    await self.commands[command](msg)
+TypeError: test() missing 1 required positional argument: 'args'
+
+[Ignis Samurai] [INFO] [19:57:30 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [DEBUG] [19:57:30 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [19:57:30 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [DEBUG] [19:57:30 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [19:57:30 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [19:57:30 22.11.2020] [handler.py:212]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [DEBUG] [19:57:31 22.11.2020] [handler.py:166]: No database
+[Ignis Samurai] [ERROR] [19:57:48 22.11.2020] [handler.py:153]: Traceback (most recent call last):
+  File "/Users/nikitabeznisko/Library/Mobile Documents/com~apple~CloudDocs/projects/python/bots/IgnisSamurai/handler/handler.py", line 149, in check_command
+    await p.process_command(command, msg)
+  File "/Users/nikitabeznisko/Library/Mobile Documents/com~apple~CloudDocs/projects/python/bots/IgnisSamurai/handler/plugins.py", line 147, in process_command
+    await self.commands[command](msg)
+TypeError: test() missing 1 required positional argument: 'args'
+
+[Ignis Samurai] [INFO] [19:58:00 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [DEBUG] [19:58:00 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [19:58:00 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [DEBUG] [19:58:00 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [19:58:00 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [19:58:00 22.11.2020] [handler.py:212]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [DEBUG] [19:58:00 22.11.2020] [handler.py:166]: No database
+[Ignis Samurai] [ERROR] [19:58:03 22.11.2020] [handler.py:153]: Traceback (most recent call last):
+  File "/Users/nikitabeznisko/Library/Mobile Documents/com~apple~CloudDocs/projects/python/bots/IgnisSamurai/handler/handler.py", line 147, in check_command
+    await p.process_command_with_args(command, msg, args)
+  File "/Users/nikitabeznisko/Library/Mobile Documents/com~apple~CloudDocs/projects/python/bots/IgnisSamurai/handler/plugins.py", line 190, in process_command_with_args
+    await self.commands[command](msg, args)
+  File "/Users/nikitabeznisko/Library/Mobile Documents/com~apple~CloudDocs/projects/python/bots/IgnisSamurai/plugins/echo.py", line 35, in test
+    print(msg.text, args.test)
+AttributeError: 'NoneType' object has no attribute 'test'
+
+[Ignis Samurai] [INFO] [19:58:38 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [DEBUG] [19:58:38 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [19:58:38 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [DEBUG] [19:58:38 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [19:58:38 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [19:58:38 22.11.2020] [handler.py:212]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [DEBUG] [19:58:38 22.11.2020] [handler.py:166]: No database
+[Ignis Samurai] [ERROR] [19:58:38 22.11.2020] [handler.py:153]: Traceback (most recent call last):
+  File "/Users/nikitabeznisko/Library/Mobile Documents/com~apple~CloudDocs/projects/python/bots/IgnisSamurai/handler/handler.py", line 139, in check_command
+    args_valid, args = await p.validate_command_args(command, args)
+  File "/Users/nikitabeznisko/Library/Mobile Documents/com~apple~CloudDocs/projects/python/bots/IgnisSamurai/handler/plugins.py", line 163, in validate_command_args
+    return True, MessageArgs()
+TypeError: __init__() missing 1 required positional argument: 'args'
+
+[Ignis Samurai] [INFO] [19:58:45 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [DEBUG] [19:58:45 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [19:58:45 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [DEBUG] [19:58:45 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [19:58:45 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [19:58:45 22.11.2020] [handler.py:212]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [DEBUG] [19:58:46 22.11.2020] [handler.py:166]: No database
+[Ignis Samurai] [INFO] [19:59:49 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [DEBUG] [19:59:49 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [19:59:49 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [DEBUG] [19:59:49 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [19:59:49 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [19:59:49 22.11.2020] [handler.py:212]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [DEBUG] [19:59:51 22.11.2020] [handler.py:166]: No database
+[Ignis Samurai] [INFO] [20:00:09 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [DEBUG] [20:00:09 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [20:00:09 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [DEBUG] [20:00:09 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [20:00:09 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [20:00:09 22.11.2020] [handler.py:212]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [DEBUG] [20:00:10 22.11.2020] [handler.py:166]: No database
+[Ignis Samurai] [INFO] [20:00:27 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [DEBUG] [20:00:27 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [20:00:27 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [DEBUG] [20:00:27 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [20:00:27 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [20:00:27 22.11.2020] [handler.py:212]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [INFO] [20:02:36 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [DEBUG] [20:02:36 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [20:02:36 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [DEBUG] [20:02:36 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [20:02:36 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [20:02:36 22.11.2020] [handler.py:212]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [INFO] [20:03:15 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [DEBUG] [20:03:15 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [20:03:15 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [DEBUG] [20:03:15 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [20:03:15 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [20:03:15 22.11.2020] [handler.py:212]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [DEBUG] [20:03:16 22.11.2020] [handler.py:166]: No database
+[Ignis Samurai] [INFO] [20:03:27 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [DEBUG] [20:03:27 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [20:03:27 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [DEBUG] [20:03:27 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [20:03:27 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [20:03:27 22.11.2020] [handler.py:212]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [DEBUG] [20:03:28 22.11.2020] [handler.py:166]: No database
+[Ignis Samurai] [INFO] [20:03:46 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [DEBUG] [20:03:46 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [20:03:46 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [DEBUG] [20:03:46 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [20:03:46 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [20:03:46 22.11.2020] [handler.py:212]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [DEBUG] [20:03:47 22.11.2020] [handler.py:166]: No database
+[Ignis Samurai] [DEBUG] [20:03:50 22.11.2020] [handler.py:166]: No database
+[Ignis Samurai] [INFO] [20:04:10 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [DEBUG] [20:04:10 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [20:04:10 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [DEBUG] [20:04:10 22.11.2020] [handler.py:42]: Init: Plugin
+[Ignis Samurai] [INFO] [20:04:10 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [20:04:11 22.11.2020] [handler.py:212]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [DEBUG] [20:04:11 22.11.2020] [handler.py:166]: No database
+[Ignis Samurai] [DEBUG] [20:04:18 22.11.2020] [handler.py:166]: No database
+[Ignis Samurai] [DEBUG] [20:04:28 22.11.2020] [handler.py:166]: No database
+[Ignis Samurai] [INFO] [20:05:12 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [DEBUG] [20:05:12 22.11.2020] [handler.py:43]: Init: Plugin
+[Ignis Samurai] [INFO] [20:05:12 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [DEBUG] [20:05:12 22.11.2020] [handler.py:43]: Init: Plugin
+[Ignis Samurai] [INFO] [20:05:12 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [20:05:12 22.11.2020] [handler.py:213]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [DEBUG] [20:05:14 22.11.2020] [handler.py:167]: No database
+[Ignis Samurai] [INFO] [20:05:24 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [DEBUG] [20:05:24 22.11.2020] [handler.py:43]: Init: Plugin
+[Ignis Samurai] [INFO] [20:05:24 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [DEBUG] [20:05:24 22.11.2020] [handler.py:43]: Init: Plugin
+[Ignis Samurai] [INFO] [20:05:24 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [20:05:24 22.11.2020] [handler.py:213]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [INFO] [20:06:31 22.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [DEBUG] [20:06:31 22.11.2020] [handler.py:43]: Init: Plugin
+[Ignis Samurai] [INFO] [20:06:31 22.11.2020] [echo.py:20]: 1st init
+[Ignis Samurai] [DEBUG] [20:06:31 22.11.2020] [handler.py:43]: Init: Plugin
+[Ignis Samurai] [INFO] [20:06:31 22.11.2020] [echo.py:25]: 2nd init
+[Ignis Samurai] [INFO] [20:06:31 22.11.2020] [handler.py:213]: Login as Kurumi Bot [Test] (https://vk.com/public199567985)
+[Ignis Samurai] [DEBUG] [20:06:33 22.11.2020] [handler.py:167]: No database
+[Ignis Samurai] [INFO] [12:30:15 23.11.2020] [logger.py:24]: Logger initialized
+[Ignis Samurai] [ERROR] [12:30:15 23.11.2020] [handler.py:29]: No access token!
