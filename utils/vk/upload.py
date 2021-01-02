@@ -1,23 +1,8 @@
 import json
 
-import requests
 from aiohttp import ClientSession, FormData
 
 from utils.vk.vk import VK, VkApiMethod
-
-
-class JsonParser:
-    """
-    JSON парсер, использующий стандартную библиотеку
-    """
-
-    @staticmethod
-    def dumps(data):
-        return json.dumps(data, ensure_ascii=False, separators=(",", ":"))
-
-    @staticmethod
-    def loads(string):
-        return json.loads(string)
 
 
 class VkUpload(object):
