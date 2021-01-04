@@ -1,5 +1,7 @@
 from enum import Enum
 
+from aiohttp import ServerDisconnectedError
+
 from utils.vk.vk import VK
 
 
@@ -10,22 +12,19 @@ class DotDict(dict):
 
 
 class VKLongPoll:
-    __slots__ = ('vk', 'api', 'server', 'key', 'ts', 'group_id')
+    __slots__ = ('vk', 'api', 'server', 'key', 'ts')
 
     def __init__(self, vk: VK):
         self.vk = vk
         self.api = vk.get_api()
-        self.group_id = 0
 
         self.server = ''
         self.key = ''
         self.ts = 0
 
     async def init_lp(self):
-        if not self.group_id:
-            group = (await self.api.groups.getById())[0]
-            self.group_id = group['id']
-        lp = await self.api.groups.getLongPollServer(group_id=self.group_id)
+        group = (await self.api.groups.getById())[0]
+        lp = await self.api.groups.getLongPollServer(group_id=group['id'])
 
         self.server = lp['server']
         self.key = lp['key']
@@ -34,14 +33,16 @@ class VKLongPoll:
     async def check(self):
         async with self.vk.session.get(f'{self.server}?act=a_check&key={self.key}&ts={self.ts}&wait=25') as res:
             body = await res.json()
-            if 'failed' in body:
-                code = body['failed']
-                if code == 1:
-                    self.ts = body['ts']
-                if code == 2 or code == 3:
-                    await self.init_lp()
-            else:
+
+        if 'failed' in body:
+            code = body['failed']
+            if code == 1:
                 self.ts = body['ts']
+            if code == 2 or code == 3:
+                await self.init_lp()
+        else:
+            self.ts = body['ts']
+
             for event in body['updates']:
                 yield VkBotEvent(event)
 

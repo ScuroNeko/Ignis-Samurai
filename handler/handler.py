@@ -1,6 +1,13 @@
 import asyncio
 import traceback
+import json
 
+
+from aiohttp.web_app import Application
+from aiohttp.web_request import Request
+from aiohttp.web_response import Response
+from aiohttp.web_routedef import post
+from aiohttp.web import run_app
 from sentry_sdk import init as sentry_init, capture_exception
 
 from handler.event import ChatEvent, Event
@@ -9,17 +16,21 @@ from settings import Settings
 from utils.database.database import Database
 from utils.logger import Logger
 from utils.utils import get_user_or_none
-from utils.vk.longpoll import VKLongPoll, VkBotEventType
+from utils.vk.longpoll import VKLongPoll, VkBotEventType, VkBotEvent
 from utils.vk.vk import VK
 
 
 class Handler:
-    __slots__ = ('settings', 'session', 'api', 'plugins', 'middlewares', 'loop')
+    __slots__ = (
+        'settings', 'session', 'api', 'plugins', 'middlewares', 'loop',
+        'app'
+    )
 
     def __init__(self, settings: Settings, middlewares: list):
         self.settings = settings
         self.session = None
         self.api = None
+        self.app = None
         self.plugins = []
         self.middlewares = middlewares
         self.loop = asyncio.get_event_loop()
@@ -30,6 +41,10 @@ class Handler:
             exit()
         self.session = VK(self.settings.token)
         self.api = self.session.get_api()
+
+        if self.settings.callback:
+            self.app = Application()
+            self.app.add_routes([post('/', self.cb)])
 
         if not self.settings.debug and self.settings.sentry_dsn:
             sentry_init(
@@ -144,10 +159,7 @@ class Handler:
                         for before_process in p.before_process_methods:
                             before_process.call()
 
-                        if args_valid and args:
-                            await p.process_command_with_args(command, msg, args)
-                        else:
-                            await p.process_command(command, msg)
+                        await p.process_command(command, msg, args)
                         return
                     except Exception as e:
                         if self.settings.debug:
@@ -159,9 +171,10 @@ class Handler:
         db = Database.db
 
         if db:
-            if db.connect(True):
+            if not db.is_closed():
                 Logger.log.debug('Connection reopened!')
             else:
+                db.connect(True)
                 Logger.log.debug('Connection opened!')
         else:
             Logger.log.debug('No database')
@@ -203,10 +216,27 @@ class Handler:
                         capture_exception(e)
 
     def run(self):
+        if self.settings.callback:
+            run_app(self.app, port=self.settings.callback_port)
         try:
             self.loop.run_until_complete(self._run())
         except KeyboardInterrupt:
             self.session.shutdown()
+
+    async def handle_event(self, event):
+        if (event.type == VkBotEventType.MESSAGE_NEW and 'action' not in event.obj) or\
+                event.type == VkBotEventType.MESSAGE_EVENT:
+            msg = Message(self.session, self.api, event.obj)
+            await self.check(msg)
+
+        elif event.type == VkBotEventType.MESSAGE_NEW and 'action' in event.obj:
+            e = ChatEvent(self.session, self.api, event.obj['action'])
+            msg = Message(self.session, self.api, event.obj)
+            await self.check_event(e, msg)
+
+        else:
+            e = Event(self.session, self.api, event.raw)
+            await self.check_event(e, None)
 
     async def _run(self):
         group = (await self.api.groups.getById())[0]
@@ -217,20 +247,32 @@ class Handler:
 
         async for event in lp.listen():
             try:
-                if event.type == VkBotEventType.MESSAGE_NEW and 'action' not in event.obj:
-                    msg = Message(self.session, self.api, event.obj)
-                    await self.check(msg)
-
-                elif event.type == VkBotEventType.MESSAGE_NEW and 'action' in event.obj:
-                    e = ChatEvent(self.session, self.api, event.obj['action'])
-                    msg = Message(self.session, self.api, event.obj)
-                    await self.check_event(e, msg)
-
-                else:
-                    e = Event(self.session, self.api, event.raw)
-                    await self.check_event(e, None)
+                await self.handle_event(event)
             except Exception as e:
                 if self.settings.debug:
                     Logger.log.error(traceback.format_exc())
                 else:
                     capture_exception(e)
+
+    async def cb(self, req: Request):
+        if not req.body_exists:
+            return Response(status=400)
+
+        body = await req.text()
+        if not body:
+            return Response(status=400)
+
+        body = json.loads(body)
+        if body['type'] == 'confirmation':
+            return Response(text=self.settings.callback_code, status=200)
+
+        if 'secret' in body:
+            if not self.settings.callback_secret:
+                Logger.log.error('no callback secret')
+                return Response(status=500)
+            if self.settings.callback_secret != body['secret']:
+                return Response(status=403)
+
+        event = VkBotEvent(body)
+        await self.handle_event(event)
+        return Response(text='ok')

@@ -4,19 +4,21 @@ from random import randint
 import aiohttp
 
 
-def get_self_id(api):
-    return api.groups.getById()[0]['id']
+async def get_self_id(api):
+    group = await api.groups.getById()
+    return group[0]['id']
 
 
 def generate_random_id():
     return randint(-9 ** 99, 9 ** 99)
 
 
-def get_user_name(id, api, name_case='nom'):
-    user = api.users.get(user_ids=id, name_case=name_case)[0]
-    return f'{user["first_name"]} {user["last_name"]}'
+async def get_user_name(id, api, name_case='nom'):
+    user = api.users.get(user_ids=id, name_case=name_case)
+    return f'{user[0]["first_name"]} {user[0]["last_name"]}'
 
 
+# TODO
 async def reupload_attachments(attachments, upload):
     new_attachments = []
     for a in attachments:

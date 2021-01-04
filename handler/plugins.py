@@ -1,3 +1,4 @@
+import inspect
 import re
 
 from handler.event import ChatEvent, Event
@@ -143,8 +144,12 @@ class Plugin:
 
         return wrapper
 
-    async def process_command(self, command: str, msg: Message):
-        await self.commands[command](msg)
+    async def process_command(self, command: str, msg: Message, args: MessageArgs):
+        sig = inspect.signature(self.commands[command])
+        if len(sig.parameters) == 1:
+            await self.commands[command](msg)
+        elif len(sig.parameters) == 2:
+            await self.commands[command](msg, args)
 
     def is_vip_command(self, command: str) -> bool:
         return command in self.vip_commands
@@ -155,7 +160,7 @@ class Plugin:
     async def validate_command_args(self, command: str, cmd_args: tuple) -> (bool, MessageArgs):
         commands_args = self.commands_args
         if command not in commands_args:
-            return True, None
+            return True, MessageArgs({})
 
         args = commands_args[command].split()
 
@@ -185,9 +190,6 @@ class Plugin:
             args.update({name: cmd_args[index]})
 
         return True, MessageArgs(args)
-
-    async def process_command_with_args(self, command: str, msg: Message, args: MessageArgs):
-        await self.commands[command](msg, args)
 
     async def process_payload(self, payload: str, msg: Message):
         await self.payloads[payload](msg)

@@ -2,7 +2,18 @@ import json
 
 from aiohttp import ClientSession, FormData
 
+from handler.message import load_attachments
 from utils.vk.vk import VK, VkApiMethod
+
+
+class JsonParser:
+    @staticmethod
+    def dumps(data):
+        return json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+
+    @staticmethod
+    def loads(string):
+        return json.loads(string)
 
 
 class VkUpload(object):
@@ -34,7 +45,9 @@ class VkUpload(object):
             response = await response.text()
             response = json.loads(response)
 
-        return await self.vk.photos.saveMessagesPhoto(**response)
+        photos = await self.vk.photos.saveMessagesPhoto(**response)
+        photos = [{'type': 'photo', 'photo': photo} for photo in photos]
+        return load_attachments(photos)
 
     async def doc_message(self, doc, pid):
         upload_info = await self.vk.docs.getMessagesUploadServer(peer_id=pid)
@@ -51,4 +64,4 @@ class VkUpload(object):
             response = await response.text()
             response = json.loads(response)
 
-        return await self.vk.docs.save(**response)
+        return load_attachments([await self.vk.docs.save(**response)])

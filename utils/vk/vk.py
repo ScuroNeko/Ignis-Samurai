@@ -1,6 +1,6 @@
 import asyncio
 
-from aiohttp import ClientSession
+from aiohttp import ClientSession, FormData
 
 
 class VK:
@@ -14,17 +14,23 @@ class VK:
 
     async def call_method(self, method, **params):
         params.update({'v': self.v})
+
         if type(self.tokens) is str:
             params.update({'access_token': self.tokens})
-        async with self.session.get(f'https://api.vk.com/method/{method}',
-                                    verify_ssl=False,
-                                    params=params) as res:
+
+        async with self.session.post(
+                f'https://api.vk.com/method/{method}',
+                data=FormData(params)
+        ) as res:
             j = await res.json()
+
             if 'error' in j:
                 error = j['error']
                 raise VKApiException(error['error_msg'], error['error_code'])
+
             if 'response' in j:
                 return j['response']
+
             return j
 
     def get_api(self):
@@ -32,13 +38,6 @@ class VK:
 
 
 class VkApiMethod(object):
-    """ Дает возможность обращаться к методам API через:
-    >>> vk = VkApiMethod(...)
-    >>> vk.wall.getById(posts='...')
-    или
-    >>> vk.wall.get_by_id(posts='...')
-    """
-
     __slots__ = ('_vk', '_method')
 
     def __init__(self, vk, method=None):
